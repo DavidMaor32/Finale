@@ -1,6 +1,7 @@
 ﻿using System;
 namespace Finale.Games {
     public class MathQuiz {
+
         public static int add(int a, int b) => a + b;
         public static int sub(int a, int b) => a - b;
         public static int mul(int a, int b) => a * b;
@@ -8,17 +9,19 @@ namespace Finale.Games {
 
 
         public Expr GetRandomExpression() {
+            Random r = new Random();
+
             MathOperator opt = getRandomOpt();
             int a,b;
             if (opt == MathOperator.Div) {
                 do {
-                    a = new Random().Next(1, 10);
-                    b = new Random().Next(1, 10);
+                    a = r.Next(1, 10);
+                    b = r.Next(1, 10);
                 } while (a % b != 0);
             }
             else {
-                a = new Random().Next(1, 10);
-                b = new Random().Next(1, 10);
+                a = r.Next(1, 10);
+                b = r.Next(1, 10);
             }
             return new Expr(a, b, opt);
         }
@@ -36,23 +39,27 @@ namespace Finale.Games {
         public readonly int operand2;
         public readonly MathOperator op;
         public Expr(int a, int b, MathOperator op) {
-            operand1 = a;
-            operand2 = b;
+            this.operand1 = a;
+            this.operand2 = b;
             this.op = op;
         }
 
         public int Val() {
-            if (op == MathOperator.Add)
-                return operand1 + operand2;
-            if (op == MathOperator.Sub)
-                return operand1 - operand2;
-            if (op == MathOperator.Mul)
-                return operand1 * operand2;
-            if (op == MathOperator.Div)
-                return operand1 / operand2;
+            if (this.op == MathOperator.Add)
+                return this.operand1 + this.operand2;
+            if (this.op == MathOperator.Sub)
+                return this.operand1 - this.operand2;
+            if (this.op == MathOperator.Mul)
+                return this.operand1 * this.operand2;
+            if (this.op == MathOperator.Div)
+                return this.operand1 / this.operand2;
             else
                 return int.MaxValue;
 
+        }
+
+        public string ToString() {
+            return $"{this.operand1} {this.op} {this.operand2}";
         }
     }
 
