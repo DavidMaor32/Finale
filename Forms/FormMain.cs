@@ -48,7 +48,8 @@ namespace Finale.Forms {
             KeyPreview = true;
             KeyDown += (sender, e) => {
                 if (e.KeyCode == Keys.Escape)
-                    Close();
+                    if (MessageBox.Show("Are you sure you want to quit?", "Quit?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        Close();
             };
         }
 
