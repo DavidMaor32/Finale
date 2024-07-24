@@ -63,7 +63,7 @@ namespace Finale.Forms.Rooms {
                 e.Handled = true;
                 return;
             }
-            if (e.KeyCode == Keys.Subtract) {
+            if (e.KeyCode == Keys.OemMinus || e.KeyCode == Keys.Subtract) {
                 if (this.input_ans.Text.Length == 0) {
                     this.input_ans.Text = "-";
                 }
@@ -91,10 +91,13 @@ namespace Finale.Forms.Rooms {
                     return;
                 }
                 else {
+                    Console.WriteLine(this.expr.ToString() + "ans: " + this.input_ans.Text);
                     if (int.Parse(this.input_ans.Text) == this.expr.Val()) {
+                        Console.WriteLine("good");
                         this._score++;
                     }
                     else {
+                        Console.WriteLine("bad");
                         this._failed++;
                     }
                     this.expr = this.controller.GetRandomExpression();
