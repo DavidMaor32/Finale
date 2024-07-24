@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.lbl_time = new System.Windows.Forms.Label();
             this.lbl_operand_1 = new System.Windows.Forms.Label();
             this.lbl_operand_2 = new System.Windows.Forms.Label();
@@ -30,6 +31,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.input_ans = new System.Windows.Forms.Label();
             this.btn_start = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lbl_time
@@ -101,6 +103,10 @@
             this.btn_start.UseVisualStyleBackColor = true;
             this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            // 
             // RoomQuickMath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -129,5 +135,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label input_ans;
         private System.Windows.Forms.Button btn_start;
+        private System.Windows.Forms.Timer timer;
     }
 }

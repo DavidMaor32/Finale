@@ -11,11 +11,12 @@ namespace Finale.Forms.Rooms {
         private static readonly TimeSpan COUNTDOWN = TimeSpan.FromSeconds(TIME_SEC);
         private TimeSpan _time;
 
+        private Expr expr;
+
         private int _score = 0;
         private int _failed = 0;
 
         bool isFrozen = false;
-        Timer timer;
         MathQuiz controller;
 
         public RoomQuickMath() {
@@ -24,9 +25,9 @@ namespace Finale.Forms.Rooms {
             this.controller = new MathQuiz();
             this._time = COUNTDOWN;
 
-            this.timer = new Timer();
-            this.timer.Interval = 1000;
             this.timer.Tick += (sender, e) => {
+                if (this.isFrozen)
+                    return;
                 this._time = this._time.Subtract(TimeSpan.FromSeconds(1));
                 UpdateTime();
                 if (this._time == TimeSpan.Zero) {
@@ -36,18 +37,11 @@ namespace Finale.Forms.Rooms {
                             ((Button)c).Enabled = false;
                         }
                     }
-                    MessageBox.Show("Time's up!");
-                    /*DialogResult = DialogResult.Abort;
-                    Close();*/
+                    MessageBox.Show($"Time's up!: score:{this._score - this._failed}\ncorrect:{this._score} miss:{this._failed}");
+                    DialogResult = this._score - this._failed >= GOAL ? DialogResult.Yes : DialogResult.No;
+                    Close();
                 }
             };
-
-            Load += (sender, e) => {
-                Timer timer = new Timer();
-                timer.Interval = 1000;
-            };
-
-
         }
 
         private void UpdateTime() {
@@ -57,10 +51,11 @@ namespace Finale.Forms.Rooms {
         protected override void OnKeyDown(object sender, KeyEventArgs e) {
             if (e.Handled)
                 return;
-
             if (char.IsDigit((char)e.KeyCode)) {
                 if (this.input_ans.Text == "0") {
+                    this.isFrozen = true;
                     MessageBox.Show("Numbers only in Decimal, NOT Octal!");
+                    this.isFrozen = false;
                 }
                 else
                     this.input_ans.Text += (char)e.KeyCode;
@@ -72,8 +67,11 @@ namespace Finale.Forms.Rooms {
                 if (this.input_ans.Text.Length == 0) {
                     this.input_ans.Text = "-";
                 }
-                else
+                else {
+                    this.isFrozen = true;
                     MessageBox.Show("`-` can only appear once, at left side of number!");
+                    this.isFrozen = false;
+                }
                 e.Handled = true;
                 return;
             }
@@ -86,46 +84,59 @@ namespace Finale.Forms.Rooms {
             }
             if (e.KeyCode == Keys.Enter) {
                 if (this.input_ans.Text.Length == 0) {
+                    this.isFrozen = true;
                     MessageBox.Show("Please enter a number!");
+                    this.isFrozen = false;
+                    e.Handled = true;
+                    return;
+                }
+                else {
+                    if (int.Parse(this.input_ans.Text) == this.expr.Val()) {
+                        this._score++;
+                    }
+                    else {
+                        this._failed++;
+                    }
+                    this.expr = this.controller.GetRandomExpression();
+                    UpdateExpr();
+                    this.input_ans.Text = "";
                     e.Handled = true;
                     return;
                 }
             }
-
-
-
-            e.Handled = true;
-        }
-
-        private void input_ans_KeyDown(object sender, KeyEventArgs e) {
-            if (e.Handled || !(char.IsDigit((char)e.KeyCode)) && e.KeyCode != Keys.Subtract) {
-                return;
-            }
-
-            if (e.KeyCode == Keys.Subtract) {
-                if (this.input_ans.Text.Length == 0) {
-                    this.input_ans.Text = "-";
-                }
-                else
-                    MessageBox.Show("`-` can only appear once, at left side of number!");
-                e.Handled = true;
-                return;
-            }
-            else if (this.input_ans.Text == "0") {
-                MessageBox.Show("Numbers only in Decimal, NOT Octal!");
-                e.Handled = true;
-                return;
-            }
             else {
-                this.input_ans.Text += (char)e.KeyCode;
+                base.OnKeyDown(sender, e);
             }
+
 
             e.Handled = true;
         }
-
         private void btn_start_Click(object sender, EventArgs e) {
             this.btn_start.Dispose();
             this.timer.Start();
+            this.expr = this.controller.GetRandomExpression();
+            UpdateExpr();
+        }
+        private void UpdateExpr() {
+            this.input_ans.Text = "";
+            this.lbl_operand_1.Text = this.expr.operand1.ToString();
+            this.lbl_operand_2.Text = this.expr.operand2.ToString();
+            switch (this.expr.op) {
+                case MathOperator.Add:
+                    this.lbl_operator.Text = "+";
+                    break;
+                case MathOperator.Sub:
+                    this.lbl_operator.Text = "-";
+                    break;
+                case MathOperator.Mul:
+                    this.lbl_operator.Text = "*";
+                    break;
+                case MathOperator.Div:
+                    this.lbl_operator.Text = "/";
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
