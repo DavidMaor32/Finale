@@ -13,6 +13,7 @@ namespace Finale.Forms.Rooms {
             Height = Screen.PrimaryScreen.Bounds.Height;
 
             ShowInTaskbar = false;
+            KeyPreview = true;
         }
 
         protected virtual void OnKeyDown(object sender, KeyEventArgs e) {
