@@ -16,7 +16,6 @@ namespace Finale.Forms.Rooms {
             InitializeComponent();
 
             KeyDown += OnKeyDown;
-            KeyPreview = true;
 
             this._wordle = new Wordle.Wordle();
 
