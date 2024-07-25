@@ -26,8 +26,9 @@ namespace Finale.Forms.Rooms {
             this._time = COUNTDOWN;
 
             this.timer.Tick += (sender, e) => {
-                if (this.isFrozen)
+                if (this.isFrozen) {
                     return;
+                }
                 this._time = this._time.Subtract(TimeSpan.FromSeconds(1));
                 UpdateTime();
                 if (this._time == TimeSpan.Zero) {
@@ -51,6 +52,11 @@ namespace Finale.Forms.Rooms {
         protected override void OnKeyDown(object sender, KeyEventArgs e) {
             if (e.Handled)
                 return;
+            if (e.KeyCode == Keys.Escape) {
+                this.isFrozen = true;
+                base.OnKeyDown(sender, e);
+                this.isFrozen = false;
+            }
             if (char.IsDigit((char)e.KeyCode)) {
                 if (this.input_ans.Text == "0") {
                     this.isFrozen = true;
