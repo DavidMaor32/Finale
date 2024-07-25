@@ -27,6 +27,7 @@ namespace Finale.Forms.Rooms {
                     }
                     break;
             }
+            e.Handled = true;
         }
     }
 }
