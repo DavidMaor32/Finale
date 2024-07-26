@@ -32,6 +32,7 @@ namespace Finale.Forms.Rooms {
             this.btn_green.BackColor = DARK_GREEN;
 
             int size = (int)(Width * 0.2);
+
             this.btn_blue.Size = new Size(size, size);
             this.btn_yellow.Size = new Size(size, size);
             this.btn_red.Size = new Size(size, size);
@@ -43,7 +44,6 @@ namespace Finale.Forms.Rooms {
             this.btn_blue.Location = new Point(Width - size, Height - size);
             Refresh();
 
-            KeyPreview = true;
         }
         private void Guess(ColorSimon color) {
             ResultSimon res = this.controller.Guess(color);

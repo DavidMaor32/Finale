@@ -22,6 +22,7 @@ namespace Finale.Forms.Rooms {
         public RoomQuickMath() {
             InitializeComponent();
 
+            this.lbl_time.Text = "TIME:" + COUNTDOWN.ToString(@"mm\:ss");
             this.controller = new MathQuiz();
             this._time = COUNTDOWN;
 
@@ -38,11 +39,14 @@ namespace Finale.Forms.Rooms {
                             ((Button)c).Enabled = false;
                         }
                     }
-                    MessageBox.Show($"Time's up!: score:{this._score - this._failed}\ncorrect:{this._score} miss:{this._failed}");
+                    MessageBox.Show("Time's up!");
+                    MessageBox.Show($"score:{this._score - this._failed}\ncorrect:{this._score} miss:{this._failed}");
                     DialogResult = this._score - this._failed >= GOAL ? DialogResult.Yes : DialogResult.No;
                     Close();
                 }
             };
+
+            KeyDown += OnKeyDown;
         }
 
         private void UpdateTime() {

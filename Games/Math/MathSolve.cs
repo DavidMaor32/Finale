@@ -58,7 +58,7 @@ namespace Finale.Games {
 
         }
 
-        public string ToString() {
+        public override string ToString() {
             return $"{this.operand1} {this.op} {this.operand2}";
         }
     }

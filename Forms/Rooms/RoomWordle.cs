@@ -15,6 +15,11 @@ namespace Finale.Forms.Rooms {
         public RoomWordle() {
             InitializeComponent();
 
+            help_str = $"In Wordle you have {Wordle.Wordle.NUM_GUESSES} to guess a {Wordle.Wordle.WORD_LENGTH} letter word.\n" +
+                        $"Green - the letter appear in the exact location.\n" +
+                        $"Yellow - the letter appear in the word but at different location. \n" +
+                        $"Gray - the letter is not in the word.";
+
             KeyDown += OnKeyDown;
 
             this._wordle = new Wordle.Wordle();

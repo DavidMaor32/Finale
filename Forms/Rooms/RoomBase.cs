@@ -3,20 +3,16 @@
 using Finale.Enums;
 
 namespace Finale.Forms.Rooms {
-    public partial class RoomBase : Form {
+    public abstract class RoomBase : FormBase {
         protected ResultRoom Result = ResultRoom.None;
         public RoomBase() {
-            InitializeComponent();
-            FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
-            Width = Screen.PrimaryScreen.Bounds.Width;
-            Height = Screen.PrimaryScreen.Bounds.Height;
+            /*Width = Screen.PrimaryScreen.Bounds.Width;
+            Height = Screen.PrimaryScreen.Bounds.Height;*/
 
             ShowInTaskbar = false;
-            KeyPreview = true;
         }
 
-        protected virtual void OnKeyDown(object sender, KeyEventArgs e) {
+        protected override void OnKeyDown(object sender, KeyEventArgs e) {
             if (e.Handled)//to avoid bubbling events.
                 return;
             switch (e.KeyCode) {
