@@ -10,9 +10,6 @@ namespace Finale.Forms {
         public Entry() {
             InitializeComponent();
 
-           
-
-
             this.BackColor = ColorTranslator.FromHtml("#D8DDEF");
 
             Width = Screen.PrimaryScreen.Bounds.Width;

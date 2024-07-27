@@ -84,12 +84,6 @@
     <Compile Include="Forms\Rooms\RoomTicTacToe.Designer.cs">
       <DependentUpon>RoomTicTacToe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rooms\RoomTicTieToe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Rooms\RoomTicTieToe.Designer.cs">
-      <DependentUpon>RoomTicTieToe.cs</DependentUpon>
-    </Compile>
     <Compile Include="Games\Math\MathOperator.cs" />
     <Compile Include="Enums\ResultRoom.cs" />
     <Compile Include="Games\Simon\ResultSimon.cs" />

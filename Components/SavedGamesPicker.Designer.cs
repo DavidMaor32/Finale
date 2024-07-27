@@ -63,7 +63,7 @@
             this.btn_ok.Enabled = false;
             this.btn_ok.Location = new System.Drawing.Point(24, 171);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(75, 23);
+            this.btn_ok.Size = new System.Drawing.Size(115, 48);
             this.btn_ok.TabIndex = 2;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = true;
@@ -74,28 +74,30 @@
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_cancel.Location = new System.Drawing.Point(160, 171);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.Size = new System.Drawing.Size(115, 48);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
             // 
             // lb_saves
             // 
+            this.lb_saves.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.lb_saves.Enabled = false;
             this.lb_saves.FormattingEnabled = true;
             this.lb_saves.Location = new System.Drawing.Point(24, 49);
             this.lb_saves.Name = "lb_saves";
-            this.lb_saves.Size = new System.Drawing.Size(217, 95);
+            this.lb_saves.Size = new System.Drawing.Size(257, 108);
             this.lb_saves.Sorted = true;
             this.lb_saves.TabIndex = 4;
             this.lb_saves.SelectedIndexChanged += new System.EventHandler(this.lb_saves_SelectedIndexChanged);
             // 
             // tb_new_file
             // 
+            this.tb_new_file.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.tb_new_file.Location = new System.Drawing.Point(76, 3);
             this.tb_new_file.MaxLength = 25;
             this.tb_new_file.Name = "tb_new_file";
-            this.tb_new_file.Size = new System.Drawing.Size(165, 20);
+            this.tb_new_file.Size = new System.Drawing.Size(205, 20);
             this.tb_new_file.TabIndex = 5;
             this.tb_new_file.TextChanged += new System.EventHandler(this.tb_new_file_TextChanged);
             this.tb_new_file.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_new_file_KeyPress);
@@ -116,7 +118,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 206);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(221)))), ((int)(((byte)(239)))));
+            this.ClientSize = new System.Drawing.Size(370, 313);
             this.Controls.Add(this.lb_name_exists);
             this.Controls.Add(this.tb_new_file);
             this.Controls.Add(this.lb_saves);
@@ -126,6 +129,7 @@
             this.Controls.Add(this.rb_select);
             this.Name = "SavedGamesPicker";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.SavedGamesPicker_Load);
             this.ResumeLayout(false);

@@ -12,7 +12,7 @@ namespace Finale.Forms {
     public partial class FormMain : FormBase {
         private static readonly Color COLOR_DEFAULT =       SystemColors.Control;
         private static readonly Color COLOR_SELECTED =      Color.Green;
-        private static readonly Color COLOR_WALL =          SystemColors.ActiveBorder;
+        private static readonly Color COLOR_WALL =          ColorTranslator.FromHtml("#2C3E50");
         private static readonly Color COLOR_GATE =          SystemColors.ControlDarkDark;
         private static readonly Color COLOR_GATE_SOLVER =   SystemColors.ControlLight;
         private static readonly Color COLOR_PLAYER =        Color.Tan;
@@ -44,8 +44,8 @@ namespace Finale.Forms {
             this.data = Data.Instance();
 
 
-            int init_width = 585, init_height = 351;
-            float dx = Width / init_width, dy = Height / init_height;
+            int init_width = 569, init_height = 312;
+            float dx = ((float)Width+1) / init_width, dy = ((float)Height+1) / init_height;
             int init_x = 0, init_y = 0;
             foreach (Control c in Controls) {
                 init_x = (int)(c.Location.X * dx);
@@ -61,6 +61,7 @@ namespace Finale.Forms {
                 control.Margin = new Padding(0);
                 if ((control.Tag.Equals("wall"))) {
                     this.walls.Add((Label)control);
+                    control.BackColor = COLOR_WALL;
                 }
                 else if (control.Tag.Equals("gate")) {
                     this.gates.Add((Label)control);
