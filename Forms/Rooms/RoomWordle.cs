@@ -15,7 +15,7 @@ namespace Finale.Forms.Rooms {
         public RoomWordle() {
             InitializeComponent();
 
-            help_str = $"In Wordle you have {Wordle.Wordle.NUM_GUESSES} to guess a {Wordle.Wordle.WORD_LENGTH} letter word.\n" +
+            this.help_str = $"In Wordle you have {Wordle.Wordle.NUM_GUESSES} to guess a {Wordle.Wordle.WORD_LENGTH} letter word.\n" +
                         $"Green - the letter appear in the exact location.\n" +
                         $"Yellow - the letter appear in the word but at different location. \n" +
                         $"Gray - the letter is not in the word.";
@@ -33,20 +33,6 @@ namespace Finale.Forms.Rooms {
             for (int i = 0; i < Wordle.Wordle.NUM_GUESSES; i++)
                 this.guesses_viewer.Controls.Add(new ViewerWord());
             Controls.Add(this.guesses_viewer);
-
-
-            Button btn = new Button();
-            btn.Text = "New Game";
-            btn.Location = new Point(Width / 2 - btn.Width / 2, Height - btn.Height);
-            btn.Click += (object sender, EventArgs e) => {
-                this._wordle.Start();
-                this.guess_num = 0;
-                this.guess = "";
-                foreach (Control control in this.guesses_viewer.Controls)
-                    ((ViewerWord)control).Reset();
-                this.guesses_viewer.Focus();
-            };
-            Controls.Add(btn);
         }
 
         protected override void OnKeyDown(object sender, KeyEventArgs e) {

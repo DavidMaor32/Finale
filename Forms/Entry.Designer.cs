@@ -51,9 +51,9 @@
             // lbl_title
             // 
             this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.Location = new System.Drawing.Point(312, 40);
+            this.lbl_title.Location = new System.Drawing.Point(280, 40);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(136, 56);
+            this.lbl_title.Size = new System.Drawing.Size(192, 56);
             this.lbl_title.TabIndex = 2;
             this.lbl_title.Text = "Finale";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -68,7 +68,6 @@
             this.Controls.Add(this.btn_quit);
             this.Name = "Entry";
             this.Text = "Entry";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

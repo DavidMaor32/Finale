@@ -6,8 +6,8 @@ namespace Finale.Forms.Rooms {
     public abstract class RoomBase : FormBase {
         protected ResultRoom Result = ResultRoom.None;
         public RoomBase() {
-            /*Width = Screen.PrimaryScreen.Bounds.Width;
-            Height = Screen.PrimaryScreen.Bounds.Height;*/
+            Width = Screen.PrimaryScreen.Bounds.Width;
+            Height = Screen.PrimaryScreen.Bounds.Height;
 
             ShowInTaskbar = false;
         }
@@ -21,6 +21,9 @@ namespace Finale.Forms.Rooms {
                         DialogResult = DialogResult.Abort;
                         Close();
                     }
+                    break;
+                default:
+                    base.OnKeyDown(sender,e);
                     break;
             }
             e.Handled = true;

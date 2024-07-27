@@ -6,7 +6,7 @@ using Finale.Games;
 namespace Finale.Forms.Rooms {
     public partial class RoomQuickMath : RoomBase {
 
-        private static readonly int GOAL = 10;
+        private static readonly int GOAL = 4;
         private static readonly int TIME_SEC = 15;
         private static readonly TimeSpan COUNTDOWN = TimeSpan.FromSeconds(TIME_SEC);
         private TimeSpan _time;
@@ -21,6 +21,7 @@ namespace Finale.Forms.Rooms {
 
         public RoomQuickMath() {
             InitializeComponent();
+            this.help_str = $"to win you need a score of minimum {GOAL} within {TIME_SEC} seconds. \n\neach correct answer is 1.\n each wrong answer is -1.";
 
             this.lbl_time.Text = "TIME:" + COUNTDOWN.ToString(@"mm\:ss");
             this.controller = new MathQuiz();
@@ -59,6 +60,8 @@ namespace Finale.Forms.Rooms {
             if (e.KeyCode == Keys.Escape) {
                 this.isFrozen = true;
                 base.OnKeyDown(sender, e);
+                if (DialogResult == DialogResult.Abort)
+                    this.timer.Stop();
                 this.isFrozen = false;
             }
             if (char.IsDigit((char)e.KeyCode)) {

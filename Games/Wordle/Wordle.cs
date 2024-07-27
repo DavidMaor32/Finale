@@ -29,10 +29,20 @@ namespace Finale.Wordle {
                 throw new ArgumentException("Guess must be 5 characters long");
             if (this.guesses_left == 0)
                 throw new InvalidOperationException("No more guesses left! the word is:" + this.word);
-            string copy = this.word;
 
+
+            string copy = this.word;
             ResultWordle[] res = new ResultWordle[5];
+
+            for (int i = 0; i < WORD_LENGTH; i++)
+                if (guess[i] == copy[i]) {
+                    res[i] = ResultWordle.Match;
+                    copy = ReplaceAt(copy, i, '$');
+                }
+
             for (int i = 0; i < WORD_LENGTH; i++) {
+                if (copy[i] == '$')
+                    continue;
                 if (Count(copy, guess[i]) == 0)
                     res[i] = ResultWordle.Wrong;
                 else {

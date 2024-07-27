@@ -154,6 +154,9 @@
     <EmbeddedResource Include="Forms\Entry.resx">
       <DependentUpon>Entry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rooms\RoomGameOfLife.resx">
       <DependentUpon>RoomGameOfLife.cs</DependentUpon>
     </EmbeddedResource>
