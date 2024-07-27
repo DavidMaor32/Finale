@@ -162,6 +162,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rooms\RoomGameOfLife.resx">
       <DependentUpon>RoomGameOfLife.cs</DependentUpon>
@@ -205,6 +206,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\key.png" />
     <None Include="Resources\image.png" />
     <None Include=".gitignore" />
     <Content Include="Assets\key.png" />

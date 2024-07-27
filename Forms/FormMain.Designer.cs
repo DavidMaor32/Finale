@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gate_final = new System.Windows.Forms.Label();
@@ -77,7 +78,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.gate_math = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mouse_location = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -263,7 +267,7 @@
             // label30
             // 
             this.label30.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label30.Location = new System.Drawing.Point(320, 42);
+            this.label30.Location = new System.Drawing.Point(320, 40);
             this.label30.Margin = new System.Windows.Forms.Padding(0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(11, 218);
@@ -323,7 +327,7 @@
             // label48
             // 
             this.label48.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label48.Location = new System.Drawing.Point(117, 130);
+            this.label48.Location = new System.Drawing.Point(117, 120);
             this.label48.Margin = new System.Windows.Forms.Padding(0);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(11, 52);
@@ -612,19 +616,43 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(16, 272);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 115;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "key";
+            // 
+            // mouse_location
+            // 
+            this.mouse_location.AutoSize = true;
+            this.mouse_location.Location = new System.Drawing.Point(208, 56);
+            this.mouse_location.Name = "mouse_location";
+            this.mouse_location.Size = new System.Drawing.Size(41, 13);
+            this.mouse_location.TabIndex = 116;
+            this.mouse_location.Tag = "dick";
+            this.mouse_location.Text = "label18";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(16, 104);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 117;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "key";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(569, 312);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.mouse_location);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gate_math);
             this.Controls.Add(this.label16);
@@ -684,8 +712,11 @@
             this.MinimizeBox = false;
             this.Name = "FormMain";
             this.Text = "FormMain";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouse_location_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -745,5 +776,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label gate_math;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label mouse_location;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -17,7 +17,7 @@ namespace Finale.Forms {
         private static readonly Color COLOR_GATE_SOLVER =   SystemColors.ControlLight;
         private static readonly Color COLOR_PLAYER =        Color.Tan;
 
-        private static readonly int speed = 5;
+        private static readonly int speed = 4;
         private static readonly int interval = 16;
 
 
@@ -44,15 +44,18 @@ namespace Finale.Forms {
             this.data = Data.Instance();
 
 
-            int init_width = 585, init_height = 351;
-            float dx = Width / init_width, dy = Height / init_height;
+            int init_width = 569, init_height = 312;
+            float dx = (float)Width / (init_width), dy = (float)Height / (init_height);
+
             int init_x = 0, init_y = 0;
             foreach (Control c in Controls) {
                 init_x = (int)(c.Location.X * dx);
                 init_y = (int)(c.Location.Y * dy);
                 c.Location = new Point(init_x, init_y);
                 c.Width = (int)(c.Width * dx);
+                c.Width += c.Width % 8;
                 c.Height = (int)(c.Height * dy);
+                c.Height += c.Height % 8;
             }
 
 
@@ -214,6 +217,10 @@ namespace Finale.Forms {
 
         private void FormMain_ResizeEnd(object sender, EventArgs e) {
 
+        }
+
+        private void mouse_location_MouseMove(object sender, MouseEventArgs e) {
+            this.mouse_location.Text = $"X: {e.X}, Y: {e.Y}";
         }
 
         private void HandleResult(DialogResult result) {
