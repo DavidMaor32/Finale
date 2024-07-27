@@ -39,8 +39,6 @@ namespace Finale.Forms.Rooms {
                     };
                 }
             }
-
-
             this.rows = new FlowLayoutPanel();
             this.rows.FlowDirection = FlowDirection.TopDown;
             this.rows.Padding = new Padding(0, 0, 0, 0);

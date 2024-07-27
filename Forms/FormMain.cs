@@ -43,6 +43,8 @@ namespace Finale.Forms {
 
 
             foreach (Control control in Controls) {
+                if (control.Tag == null)
+                    continue;
                 control.Anchor = AnchorStyles.None;
                 control.Margin = new Padding(0);
                 if ((control.Tag.Equals("wall"))) {
@@ -126,7 +128,16 @@ namespace Finale.Forms {
                         new RoomQuickMath().ShowDialog();
                 }
             }
-
+            //room finale
+            /*if (gate == this.gate_final) {
+                if (!this.data.Exists(RoomCode.Final)) {
+                    res = new RoomGameOfLife().ShowDialog();
+                    if (res == DialogResult.Yes)
+                        this.data.AddRoom(RoomCode.F);
+                    else
+                        p = new Point(p.X, p.Y + speed);
+                }
+            }*/
 
 
 

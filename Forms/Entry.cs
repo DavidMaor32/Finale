@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 using Finale.Components;
 using Finale.Helpers;
@@ -8,14 +9,28 @@ namespace Finale.Forms {
     public partial class Entry : FormBase {
         public Entry() {
             InitializeComponent();
-            this.help_str = "Welcome to Finale!\nif you feel lost ypu can always press <?> for help";
+
+           
+
+
+            this.BackColor = ColorTranslator.FromHtml("#D8DDEF");
 
             Width = Screen.PrimaryScreen.Bounds.Width;
             Height = Screen.PrimaryScreen.Bounds.Height;
+            menu_panel.Height = (int)(this.Height * 0.8);
+            menu_panel.Width = (int)(this.Width * 0.3);
 
-            this.lbl_title.Location = new System.Drawing.Point(Width / 2 - this.lbl_title.Width / 2, Height / 2 - this.lbl_title.Height / 2);
-            this.btn_quit.Location = new System.Drawing.Point(Width / 2 - this.btn_quit.Width / 2, Height / 2 - this.btn_quit.Height / 2 + 2 * 50);
-            this.btn_start.Location = new System.Drawing.Point(Width / 2 - this.btn_start.Width / 2, Height / 2 - this.btn_start.Height / 2 + 50);
+            this.menu_panel.Location = new System.Drawing.Point(Width / 2 - this.menu_panel.Width / 2, Height / 2 - this.menu_panel.Height / 2);
+            this.lbl_title.Location = new System.Drawing.Point(this.menu_panel.Width / 2 - this.lbl_title.Width / 2,
+                this.menu_panel.Top + 10);
+            this.intro_label.Location = new System.Drawing.Point(this.menu_panel.Width / 2 - this.intro_label.Width / 2,
+                this.lbl_title.Bottom + 70);
+            this.btn_start.Location = new System.Drawing.Point(this.menu_panel.Width / 2 - this.btn_start.Width / 2,
+                this.intro_label.Bottom + 70);
+            this.btn_quit.Location = new System.Drawing.Point(this.menu_panel.Width / 2 - this.btn_quit.Width / 2,
+                this.btn_start.Bottom + 250);
+
+
         }
 
         private void btn_start_Click(object sender, System.EventArgs e) {
@@ -48,6 +63,11 @@ namespace Finale.Forms {
 
             base.OnKeyDown(sender, e);
             e.Handled = true;
+        }
+
+        private void Entry_Load(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
