@@ -85,7 +85,7 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label1.Location = new System.Drawing.Point(549, 218);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 10);
             this.label1.TabIndex = 0;
@@ -95,7 +95,7 @@
             // 
             this.label2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label2.Location = new System.Drawing.Point(549, 270);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 10);
             this.label2.TabIndex = 1;
@@ -105,7 +105,7 @@
             // 
             this.gate_final.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.gate_final.Location = new System.Drawing.Point(549, 229);
-            this.gate_final.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gate_final.Margin = new System.Windows.Forms.Padding(0);
             this.gate_final.Name = "gate_final";
             this.gate_final.Size = new System.Drawing.Size(5, 42);
             this.gate_final.TabIndex = 2;
@@ -115,7 +115,7 @@
             // 
             this.label5.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label5.Location = new System.Drawing.Point(32, 52);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(11, 52);
             this.label5.TabIndex = 4;
@@ -125,7 +125,7 @@
             // 
             this.label6.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(11, 312);
             this.label6.TabIndex = 5;
@@ -135,7 +135,7 @@
             // 
             this.label7.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label7.Location = new System.Drawing.Point(0, 302);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(571, 10);
             this.label7.TabIndex = 6;
@@ -145,7 +145,7 @@
             // 
             this.label8.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(571, 10);
             this.label8.TabIndex = 7;
@@ -155,7 +155,7 @@
             // 
             this.label9.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label9.Location = new System.Drawing.Point(560, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(11, 229);
             this.label9.TabIndex = 8;
@@ -165,7 +165,7 @@
             // 
             this.label10.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label10.Location = new System.Drawing.Point(560, 270);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(11, 36);
             this.label10.TabIndex = 9;
@@ -173,7 +173,6 @@
             // 
             // label13
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label13.Location = new System.Drawing.Point(11, 125);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
@@ -184,7 +183,6 @@
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label4.Location = new System.Drawing.Point(320, 42);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
@@ -195,7 +193,6 @@
             // 
             // label11
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label11.Location = new System.Drawing.Point(165, 260);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
@@ -206,7 +203,6 @@
             // 
             // label12
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label12.Location = new System.Drawing.Point(224, 198);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
@@ -217,7 +213,6 @@
             // 
             // label15
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label15.Location = new System.Drawing.Point(11, 198);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
@@ -228,7 +223,6 @@
             // 
             // label17
             // 
-            this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label17.Location = new System.Drawing.Point(75, 161);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
@@ -249,7 +243,6 @@
             // 
             // label22
             // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label22.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label22.Location = new System.Drawing.Point(11, 83);
             this.label22.Margin = new System.Windows.Forms.Padding(0);
@@ -260,7 +253,6 @@
             // 
             // label25
             // 
-            this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label25.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label25.Location = new System.Drawing.Point(160, 83);
             this.label25.Margin = new System.Windows.Forms.Padding(0);
@@ -273,7 +265,7 @@
             // 
             this.label30.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label30.Location = new System.Drawing.Point(320, 42);
-            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label30.Margin = new System.Windows.Forms.Padding(0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(11, 218);
             this.label30.TabIndex = 34;
@@ -283,7 +275,7 @@
             // 
             this.label31.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label31.Location = new System.Drawing.Point(213, 229);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(11, 78);
             this.label31.TabIndex = 33;
@@ -293,7 +285,7 @@
             // 
             this.label33.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label33.Location = new System.Drawing.Point(368, 83);
-            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label33.Margin = new System.Windows.Forms.Padding(0);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(11, 42);
             this.label33.TabIndex = 40;
@@ -302,7 +294,7 @@
             // player
             // 
             this.player.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.player.Location = new System.Drawing.Point(11, 62);
+            this.player.Location = new System.Drawing.Point(16, 64);
             this.player.Margin = new System.Windows.Forms.Padding(0);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(11, 10);
@@ -313,7 +305,7 @@
             // 
             this.label43.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label43.Location = new System.Drawing.Point(267, 260);
-            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Margin = new System.Windows.Forms.Padding(0);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(11, 42);
             this.label43.TabIndex = 48;
@@ -323,7 +315,7 @@
             // 
             this.label45.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label45.Location = new System.Drawing.Point(59, 198);
-            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label45.Margin = new System.Windows.Forms.Padding(0);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(11, 36);
             this.label45.TabIndex = 46;
@@ -333,7 +325,7 @@
             // 
             this.label48.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label48.Location = new System.Drawing.Point(117, 130);
-            this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label48.Margin = new System.Windows.Forms.Padding(0);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(11, 52);
             this.label48.TabIndex = 43;
@@ -343,7 +335,7 @@
             // 
             this.label49.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label49.Location = new System.Drawing.Point(37, 161);
-            this.label49.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label49.Margin = new System.Windows.Forms.Padding(0);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(11, 42);
             this.label49.TabIndex = 42;
@@ -353,7 +345,7 @@
             // 
             this.label50.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label50.Location = new System.Drawing.Point(75, 52);
-            this.label50.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label50.Margin = new System.Windows.Forms.Padding(0);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(11, 109);
             this.label50.TabIndex = 41;
@@ -361,7 +353,6 @@
             // 
             // label53
             // 
-            this.label53.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label53.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label53.Location = new System.Drawing.Point(117, 120);
             this.label53.Margin = new System.Windows.Forms.Padding(0);
@@ -372,7 +363,6 @@
             // 
             // label55
             // 
-            this.label55.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label55.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label55.Location = new System.Drawing.Point(165, 156);
             this.label55.Margin = new System.Windows.Forms.Padding(0);
@@ -383,7 +373,6 @@
             // 
             // label58
             // 
-            this.label58.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label58.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label58.Location = new System.Drawing.Point(117, 229);
             this.label58.Margin = new System.Windows.Forms.Padding(0);
@@ -394,7 +383,6 @@
             // 
             // label76
             // 
-            this.label76.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label76.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label76.Location = new System.Drawing.Point(11, 260);
             this.label76.Margin = new System.Windows.Forms.Padding(0);
@@ -405,7 +393,6 @@
             // 
             // label78
             // 
-            this.label78.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label78.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label78.Location = new System.Drawing.Point(411, 156);
             this.label78.Margin = new System.Windows.Forms.Padding(0);
@@ -416,7 +403,6 @@
             // 
             // label79
             // 
-            this.label79.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label79.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label79.Location = new System.Drawing.Point(411, 250);
             this.label79.Margin = new System.Windows.Forms.Padding(0);
@@ -427,7 +413,6 @@
             // 
             // label80
             // 
-            this.label80.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label80.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label80.Location = new System.Drawing.Point(421, 198);
             this.label80.Margin = new System.Windows.Forms.Padding(0);
@@ -438,7 +423,6 @@
             // 
             // label81
             // 
-            this.label81.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label81.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label81.Location = new System.Drawing.Point(507, 177);
             this.label81.Margin = new System.Windows.Forms.Padding(0);
@@ -449,7 +433,6 @@
             // 
             // label84
             // 
-            this.label84.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label84.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label84.Location = new System.Drawing.Point(368, 83);
             this.label84.Margin = new System.Windows.Forms.Padding(0);
@@ -460,7 +443,6 @@
             // 
             // label86
             // 
-            this.label86.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label86.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label86.Location = new System.Drawing.Point(469, 125);
             this.label86.Margin = new System.Windows.Forms.Padding(0);
@@ -473,7 +455,7 @@
             // 
             this.label92.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label92.Location = new System.Drawing.Point(411, 10);
-            this.label92.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label92.Margin = new System.Windows.Forms.Padding(0);
             this.label92.Name = "label92";
             this.label92.Size = new System.Drawing.Size(11, 114);
             this.label92.TabIndex = 105;
@@ -483,7 +465,7 @@
             // 
             this.label95.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label95.Location = new System.Drawing.Point(363, 161);
-            this.label95.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label95.Margin = new System.Windows.Forms.Padding(0);
             this.label95.Name = "label95";
             this.label95.Size = new System.Drawing.Size(11, 146);
             this.label95.TabIndex = 102;
@@ -493,7 +475,7 @@
             // 
             this.label96.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label96.Location = new System.Drawing.Point(411, 166);
-            this.label96.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label96.Margin = new System.Windows.Forms.Padding(0);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(11, 94);
             this.label96.TabIndex = 101;
@@ -503,7 +485,7 @@
             // 
             this.label98.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label98.Location = new System.Drawing.Point(453, 260);
-            this.label98.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label98.Margin = new System.Windows.Forms.Padding(0);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(11, 42);
             this.label98.TabIndex = 99;
@@ -513,7 +495,7 @@
             // 
             this.label99.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label99.Location = new System.Drawing.Point(501, 177);
-            this.label99.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label99.Margin = new System.Windows.Forms.Padding(0);
             this.label99.Name = "label99";
             this.label99.Size = new System.Drawing.Size(11, 88);
             this.label99.TabIndex = 98;
@@ -523,7 +505,7 @@
             // 
             this.label100.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label100.Location = new System.Drawing.Point(501, 218);
-            this.label100.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label100.Margin = new System.Windows.Forms.Padding(0);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(11, 42);
             this.label100.TabIndex = 97;
@@ -533,7 +515,7 @@
             // 
             this.label102.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label102.Location = new System.Drawing.Point(107, 260);
-            this.label102.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label102.Margin = new System.Windows.Forms.Padding(0);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(11, 52);
             this.label102.TabIndex = 95;
@@ -543,7 +525,7 @@
             // 
             this.label34.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label34.Location = new System.Drawing.Point(512, 5);
-            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label34.Margin = new System.Windows.Forms.Padding(0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(11, 42);
             this.label34.TabIndex = 106;
@@ -551,7 +533,6 @@
             // 
             // label35
             // 
-            this.label35.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label35.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label35.Location = new System.Drawing.Point(512, 47);
             this.label35.Margin = new System.Windows.Forms.Padding(0);
@@ -562,7 +543,6 @@
             // 
             // label37
             // 
-            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label37.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label37.Location = new System.Drawing.Point(507, 88);
             this.label37.Margin = new System.Windows.Forms.Padding(0);
@@ -575,7 +555,7 @@
             // 
             this.label41.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label41.Location = new System.Drawing.Point(459, 42);
-            this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label41.Margin = new System.Windows.Forms.Padding(0);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(11, 125);
             this.label41.TabIndex = 109;
@@ -583,7 +563,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label3.Location = new System.Drawing.Point(123, 42);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
@@ -596,7 +575,7 @@
             // 
             this.gate_wordle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.gate_wordle.Location = new System.Drawing.Point(117, 88);
-            this.gate_wordle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gate_wordle.Margin = new System.Windows.Forms.Padding(0);
             this.gate_wordle.Name = "gate_wordle";
             this.gate_wordle.Size = new System.Drawing.Size(5, 31);
             this.gate_wordle.TabIndex = 111;
@@ -606,7 +585,7 @@
             // 
             this.label14.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label14.Location = new System.Drawing.Point(64, 234);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Margin = new System.Windows.Forms.Padding(0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(5, 26);
             this.label14.TabIndex = 112;
@@ -616,7 +595,7 @@
             // 
             this.label16.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label16.Location = new System.Drawing.Point(464, 166);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(5, 31);
             this.label16.TabIndex = 113;
@@ -626,7 +605,7 @@
             // 
             this.gate_math.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.gate_math.Location = new System.Drawing.Point(272, 40);
-            this.gate_math.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gate_math.Margin = new System.Windows.Forms.Padding(0);
             this.gate_math.Name = "gate_math";
             this.gate_math.Size = new System.Drawing.Size(48, 8);
             this.gate_math.TabIndex = 114;
@@ -644,8 +623,8 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(569, 312);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gate_math);
@@ -702,9 +681,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormMain";
             this.Text = "FormMain";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -172,12 +172,6 @@
     <EmbeddedResource Include="Forms\Rooms\RoomSimonSays.resx">
       <DependentUpon>RoomSimonSays.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rooms\RoomTicTacToe.resx">
-      <DependentUpon>RoomTicTacToe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rooms\RoomTicTieToe.resx">
-      <DependentUpon>RoomTicTieToe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rooms\RoomWordle.resx">
       <DependentUpon>RoomWordle.cs</DependentUpon>
     </EmbeddedResource>
