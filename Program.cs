@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-using Finale.Forms.Rooms;
+using Finale.Forms;
 
 namespace Finale {
     internal static class Program {
