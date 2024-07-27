@@ -5,10 +5,8 @@ namespace Finale.Forms {
         protected string help_str = "";
         public FormBase() {
             FormBorderStyle = FormBorderStyle.None;
+            Size = Screen.PrimaryScreen.Bounds.Size;
             WindowState = FormWindowState.Maximized;
-            /*Size = Screen.PrimaryScreen.Bounds.Size;
-            Width = Screen.PrimaryScreen.Bounds.Width;
-            Height = Screen.PrimaryScreen.Bounds.Height;*/
             KeyPreview = true;
 
             Shown += (sender, e) => {

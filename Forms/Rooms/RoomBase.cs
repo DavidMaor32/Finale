@@ -3,7 +3,7 @@
 using Finale.Enums;
 
 namespace Finale.Forms.Rooms {
-    public abstract class RoomBase : FormBase {
+    public class RoomBase : FormBase {
         protected ResultRoom Result = ResultRoom.None;
         public RoomBase() {
             Width = Screen.PrimaryScreen.Bounds.Width;

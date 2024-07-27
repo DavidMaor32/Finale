@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-using Finale.Forms.Rooms;
+using Finale.Forms;
 
 namespace Finale {
     internal static class Program {
@@ -12,7 +12,7 @@ namespace Finale {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RoomTicTieToe());
+            Application.Run(new Entry());
         }
 
 

@@ -166,6 +166,9 @@
     <EmbeddedResource Include="Forms\Rooms\RoomSimonSays.resx">
       <DependentUpon>RoomSimonSays.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rooms\RoomTicTieToe.resx">
+      <DependentUpon>RoomTicTieToe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rooms\RoomWordle.resx">
       <DependentUpon>RoomWordle.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <Content Include="Assets\key.png" />
     <Content Include="Games\Wordle\valid-wordle-words.txt" />
   </ItemGroup>
   <ItemGroup>

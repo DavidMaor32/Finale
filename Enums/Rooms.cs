@@ -2,6 +2,7 @@
     public enum RoomCode {
         Wordle,
         Math,
-        TicTieToe
+        TicTieToe,
+        Final
     }
 }

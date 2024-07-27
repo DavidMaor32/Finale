@@ -34,6 +34,8 @@ namespace Finale.Forms {
 
         public FormMain(string path) {
             InitializeComponent();
+            Width = Screen.PrimaryScreen.Bounds.Width;
+            Height = Screen.PrimaryScreen.Bounds.Height;
             this.help_str = @"The main goal is to beat all the rooms to get to the end...";
 
             this.path_save = path;
@@ -42,8 +44,21 @@ namespace Finale.Forms {
             this.data = Data.Instance();
 
 
+            int init_width = 585, init_height = 351;
+            float dx = Width / init_width, dy = Height / init_height;
+            int init_x = 0, init_y = 0;
+            foreach (Control c in Controls) {
+                init_x = (int)(c.Location.X * dx);
+                init_y = (int)(c.Location.Y * dy);
+                c.Location = new Point(init_x, init_y);
+                c.Width = (int)(c.Width * dx);
+                c.Height = (int)(c.Height * dy);
+            }
+
+
             foreach (Control control in Controls) {
-                control.Anchor = AnchorStyles.None;
+                if (control.Tag == null)
+                    continue;
                 control.Margin = new Padding(0);
                 if ((control.Tag.Equals("wall"))) {
                     this.walls.Add((Label)control);
@@ -64,17 +79,9 @@ namespace Finale.Forms {
             this.EngineTimer.Start();
 
 
-
             KeyDown += OnKeyDown;
             KeyPress += OnKeyPress;
             KeyUp += OnKeyUp;
-
-            /*Width = (int)(1.5*Width);
-            Height = (int)(1.5*Height);*/
-
-            foreach (Control control in Controls) {
-                control.Bounds = new Rectangle((int)(1.5 * control.Location.X), (int)(1.5 * control.Location.Y), (int)(1.5 * control.Width), (int)(1.5 * control.Height));
-            }
         }
 
 
@@ -126,7 +133,16 @@ namespace Finale.Forms {
                         new RoomQuickMath().ShowDialog();
                 }
             }
-
+            //room finale
+            /*if (gate == this.gate_final) {
+                if (!this.data.Exists(RoomCode.Final)) {
+                    res = new RoomGameOfLife().ShowDialog();
+                    if (res == DialogResult.Yes)
+                        this.data.AddRoom(RoomCode.F);
+                    else
+                        p = new Point(p.X, p.Y + speed);
+                }
+            }*/
 
 
 
@@ -204,6 +220,10 @@ namespace Finale.Forms {
                     this.right = false;
                     break;
             }
+        }
+
+        private void FormMain_ResizeEnd(object sender, EventArgs e) {
+
         }
 
         private void HandleResult(DialogResult result) {
