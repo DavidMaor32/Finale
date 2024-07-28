@@ -27,11 +27,47 @@ namespace Finale.Forms.Rooms {
             this.guesses_viewer = new FlowLayoutPanel();
             this.guesses_viewer.FlowDirection = FlowDirection.TopDown;
             this.guesses_viewer.Padding = new Padding(0, 0, 0, 0);
-            this.guesses_viewer.Location = new Point(Width / 2 + this.guesses_viewer.Width / 2, 0);
+            this.guesses_viewer.Location = new Point(Width / 2 - this.guesses_viewer.Width, Height / 4);
             this.guesses_viewer.AutoSize = true;
             this.guesses_viewer.Width = Width;
             for (int i = 0; i < Wordle.Wordle.NUM_GUESSES; i++)
                 this.guesses_viewer.Controls.Add(new ViewerWord());
+
+
+            //add keyboard
+            /*char[][] keys = new char[][] {
+                new char[] {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
+                new char[] {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'},
+                new char[] {'Z', 'X', 'C', 'V', 'B', 'N', 'M'}
+            };
+            FlowLayoutPanel keyboard = new FlowLayoutPanel();
+            keyboard.FlowDirection = FlowDirection.TopDown;
+            keyboard.Padding = new Padding(0, 0, 0, 0);
+            keyboard.Location = new Point(Width / 2 - (int)(1.5 * keyboard.Width), (int)(Height * 0.8));
+            keyboard.AutoSize = true;
+            keyboard.Width = Width;
+            for (int i = 0; i < keys.Length; i++) {
+                FlowLayoutPanel row = new FlowLayoutPanel();
+                row.FlowDirection = FlowDirection.LeftToRight;
+                row.Padding = new Padding(0, 0, 0, 0);
+                row.AutoSize = true;
+                row.Anchor = AnchorStyles.None;
+                row.Width = Width;
+                if (i == 2)
+                    row.Controls.Add(new Button() { Text = "Enter", Height = 50 });
+                foreach (char c in keys[i]) {
+                    Button btn = new Button();
+                    btn.Text = c.ToString();
+                    btn.Width = 50;
+                    btn.Height = 50;
+                    btn.Click += (sender, e) => AddLetter(c);
+                    row.Controls.Add(btn);
+                }
+                keyboard.Controls.Add(row);
+            }
+            ((FlowLayoutPanel)keyboard.Controls[2]).Controls.Add(new Button() { Text = "Del", Height = 50 });
+            Controls.Add(keyboard);*/
+
             Controls.Add(this.guesses_viewer);
         }
 

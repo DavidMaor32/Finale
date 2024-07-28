@@ -1,10 +1,7 @@
 ﻿using System.Windows.Forms;
 
-using Finale.Enums;
-
 namespace Finale.Forms.Rooms {
     public class RoomBase : FormBase {
-        protected ResultRoom Result = ResultRoom.None;
         public RoomBase() {
             Width = Screen.PrimaryScreen.Bounds.Width;
             Height = Screen.PrimaryScreen.Bounds.Height;
@@ -23,7 +20,7 @@ namespace Finale.Forms.Rooms {
                     }
                     break;
                 default:
-                    base.OnKeyDown(sender,e);
+                    base.OnKeyDown(sender, e);
                     break;
             }
             e.Handled = true;

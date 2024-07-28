@@ -12,7 +12,7 @@ namespace Finale.Forms {
     public partial class FormMain : FormBase {
         private static readonly Color COLOR_DEFAULT =       SystemColors.Control;
         private static readonly Color COLOR_SELECTED =      Color.Green;
-        private static readonly Color COLOR_WALL =          SystemColors.ActiveBorder;
+        private static readonly Color COLOR_WALL =          ColorTranslator.FromHtml("#2C3E50");
         private static readonly Color COLOR_GATE =          SystemColors.ControlDarkDark;
         private static readonly Color COLOR_GATE_SOLVER =   SystemColors.ControlLight;
         private static readonly Color COLOR_PLAYER =        Color.Tan;
@@ -28,9 +28,8 @@ namespace Finale.Forms {
         private bool left, right, up, down;
         private bool is_playing = false, overlay = false;
 
-        private RoomBase room;
         private List<Label> walls;
-        private List<Label> gates;
+        private List<PictureBox> keys;
 
         public FormMain(string path) {
             InitializeComponent();
@@ -40,13 +39,13 @@ namespace Finale.Forms {
 
             this.path_save = path;
             this.walls = new List<Label>();
-            this.gates = new List<Label>();
+            this.keys = new List<PictureBox>();
             this.data = Data.Instance();
+            this.player.BringToFront();
 
-
+            //scaling from designer
             int init_width = 569, init_height = 312;
-            float dx = (float)Width / (init_width), dy = (float)Height / (init_height);
-
+            float dx = ((float)Width+1) / init_width, dy = ((float)Height+1) / init_height;
             int init_x = 0, init_y = 0;
             foreach (Control c in Controls) {
                 init_x = (int)(c.Location.X * dx);
@@ -58,21 +57,36 @@ namespace Finale.Forms {
                 c.Height += c.Height % 8;
             }
 
-
+            //grouping based on tag
             foreach (Control control in Controls) {
-                control.Anchor = AnchorStyles.None;
                 control.Margin = new Padding(0);
                 if ((control.Tag.Equals("wall"))) {
                     this.walls.Add((Label)control);
+                    control.BackColor = COLOR_WALL;
                 }
-                else if (control.Tag.Equals("gate")) {
-                    this.gates.Add((Label)control);
+                else if (control.Tag.Equals("key")) {
+                    this.keys.Add((PictureBox)control);
+                    control.BackColor = Color.Transparent;
                 }
             }
 
+            //eliminating obtained keys and walls
             foreach (RoomCode code in this.data.Solved) {
-                GetGate(code).BackColor = COLOR_GATE_SOLVER;
+                Label wall = this.walls.Find(w => w.Name.Equals("wall"+(int)code));
+                PictureBox key = this.keys.Find(k => k.Name.Equals("key"+(int)code));
+                if (wall != null) {
+                    Controls.Remove(wall);
+                    wall.Dispose();
+                    this.walls.Remove(wall);
+                }
+                if (key != null) {
+                    Controls.Remove(key);
+                    key.Dispose();
+                    this.keys.Remove(key);
+                }
+                GC.Collect();
             }
+
 
 
             this.EngineTimer = new Timer();
@@ -93,12 +107,25 @@ namespace Finale.Forms {
                 return;
 
             UpdateLocation();
-            Label gate = GetIntersectedGate();
 
-            if (gate == null) {
+            bool end = this.data.Solved.Length == Enum.GetValues(typeof(RoomCode)).Length;
+            if (this.player.Bounds.IntersectsWith(this.gate_final.Bounds) && !end)
+                this.player.Location = new Point(this.player.Location.X - speed, this.player.Location.Y);
+            else if (this.player.Bounds.IntersectsWith(this.gate_final.Bounds)) {
+                if (MessageBox.Show("Congratulations! You have completed the game!\nDo you want to save your progress?", "Game Over", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    FileHelper.SaveGame(this.path_save, this.data.Record());
+                DialogResult = DialogResult.OK;
+                Dispose();
+            }
+
+            PictureBox key = GetIntersectedKey();
+
+            if (key == null) {
                 this.overlay = false;
                 return;
             }
+
+            //to disable recalling the room while playing
             if (this.overlay)
                 return;
             this.left = this.right = this.up = this.down = false;
@@ -107,40 +134,49 @@ namespace Finale.Forms {
             this.overlay = true;
             DialogResult res = DialogResult.None;
             Point p = this.player.Location;
-            //room wordle
-            if (gate == this.gate_wordle) {
-                if (!this.data.Exists(RoomCode.Wordle)) {
-                    res = new RoomWordle().ShowDialog();
-                    if (res == DialogResult.Yes)
-                        this.data.AddRoom(RoomCode.Wordle);
-                    else
-                        p = new Point(p.X - speed, p.Y);
-                }
-                else {
-                    if (MessageBox.Show("You already won, wanna play again?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        new RoomWordle().ShowDialog();
-                }
-            }
+
+
             //room math
-            if (gate == this.gate_math) {
-                if (!this.data.Exists(RoomCode.Math)) {
-                    res = new RoomQuickMath().ShowDialog();
-                    if (res == DialogResult.Yes)
-                        this.data.AddRoom(RoomCode.Math);
-                    else
-                        p = new Point(p.X, p.Y + speed);
-                }
-                else {
-                    if (MessageBox.Show("You already won, wanna play again?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        new RoomQuickMath().ShowDialog();
-                }
+            if (key == this.key1) {
+                res = new RoomQuickMath().ShowDialog();
+                if (res == DialogResult.Yes)
+                    this.data.AddRoom(RoomCode.Math);
+                else
+                    p = new Point(p.X - speed, p.Y);
+            }
+            //room wordle
+            if (key == this.key2) {
+                res = new RoomWordle().ShowDialog();
+                if (res == DialogResult.Yes)
+                    this.data.AddRoom(RoomCode.Wordle);
+                else
+                    p = new Point(p.X - speed, p.Y);
+            }
+            //room sort
+            if (key == this.key3) {
+                res = new RoomSortNumbers().ShowDialog();
+                if (res == DialogResult.Yes)
+                    this.data.AddRoom(RoomCode.Sort);
+                else
+                    p = new Point(p.X - speed, p.Y);
             }
 
 
-
-
-            if (res == DialogResult.Yes)
-                gate.BackColor = COLOR_GATE_SOLVER;
+            //eliminating obtained keys and walls
+            if (res == DialogResult.Yes) {
+                Label wall = this.walls.Find(w => w.Name.Equals("wall"+key.Name.Substring(3).ToString().ToLower()));
+                if (wall != null) {
+                    Controls.Remove(wall);
+                    wall.Dispose();
+                    this.walls.Remove(wall);
+                }
+                if (key != null) {
+                    Controls.Remove(key);
+                    key.Dispose();
+                    this.keys.Remove(key);
+                }
+                GC.Collect();
+            }
             this.player.Location = p;
             this.is_playing = false;
         }
@@ -215,36 +251,6 @@ namespace Finale.Forms {
             }
         }
 
-        private void FormMain_ResizeEnd(object sender, EventArgs e) {
-
-        }
-
-        private void mouse_location_MouseMove(object sender, MouseEventArgs e) {
-            this.mouse_location.Text = $"X: {e.X}, Y: {e.Y}";
-        }
-
-        private void HandleResult(DialogResult result) {
-            string msg, room_name, result_str = "";
-
-            room_name = this.room.GetType().Name.Substring(4);
-
-            switch (result) {
-                case DialogResult.Abort:
-                    msg = $"Didn't like {room_name}?";
-                    MessageBox.Show(msg);
-                    return;
-                case DialogResult.Yes:
-                    result_str = "won";
-                    break;
-                case DialogResult.No:
-                    result_str = "lost";
-                    break;
-            }
-
-            msg = $"You {result_str} {room_name}!";
-
-            MessageBox.Show(msg);
-        }
 
         private void UpdateLocation() {
             Point p = new Point(this.player.Location.X, this.player.Location.Y);
@@ -270,20 +276,20 @@ namespace Finale.Forms {
             this.player.Location = p;
         }
 
-        private Label GetIntersectedGate() {
-            foreach (Label gate in this.gates) {
-                if (gate.Bounds.IntersectsWith(this.player.Bounds)) {
-                    return gate;
+        private PictureBox GetIntersectedKey() {
+            foreach (PictureBox p in this.keys) {
+                if (p.Bounds.IntersectsWith(this.player.Bounds)) {
+                    return p;
                 }
             }
             return null;
         }
 
-        private Label GetGate(RoomCode code) {
-            foreach (Label gate in this.gates) {
-                if (gate.Name.ToLower().EndsWith(code.ToString().ToLower())) {
-                    return gate;
-                }
+
+        private Control GetControl(string name) {
+            foreach (Control c in Controls) {
+                if (c.Name == name)
+                    return c;
             }
             return null;
         }

@@ -106,7 +106,6 @@
             this.Name = "Entry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entry";
-            this.Load += new System.EventHandler(this.Entry_Load);
             this.menu_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 

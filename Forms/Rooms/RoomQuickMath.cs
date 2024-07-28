@@ -23,6 +23,14 @@ namespace Finale.Forms.Rooms {
             InitializeComponent();
             this.help_str = $"to win you need a score of minimum {GOAL} within {TIME_SEC} seconds. \n\neach correct answer is 1.\n each wrong answer is -1.";
 
+            this.lbl_time.Location = new System.Drawing.Point(Width / 2 - this.lbl_time.Width / 2, (int)(0.1 * Height));
+            this.panel1.Location = new System.Drawing.Point(Width / 2 - this.panel1.Width / 2, (int)(0.3 * Height));
+            /*this.btn_start.Location = this.panel1.Location;
+            this.btn_start.Text = "START";
+            this.btn_start.Bounds = this.panel1.Bounds;
+            */
+            this.btn_start.BringToFront();
+
             this.lbl_time.Text = "TIME:" + COUNTDOWN.ToString(@"mm\:ss");
             this.controller = new MathQuiz();
             this._time = COUNTDOWN;

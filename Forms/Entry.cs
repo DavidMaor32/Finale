@@ -10,24 +10,22 @@ namespace Finale.Forms {
         public Entry() {
             InitializeComponent();
 
-           
-
-
-            this.BackColor = ColorTranslator.FromHtml("#D8DDEF");
+            BackColor = ColorTranslator.FromHtml("#D8DDEF");
 
             Width = Screen.PrimaryScreen.Bounds.Width;
             Height = Screen.PrimaryScreen.Bounds.Height;
-            menu_panel.Height = (int)(this.Height * 0.8);
-            menu_panel.Width = (int)(this.Width * 0.3);
+            MaximizeBox = true;
+            this.menu_panel.Height = (int)(Height * 0.8);
+            this.menu_panel.Width = (int)(Width * 0.3);
 
-            this.menu_panel.Location = new System.Drawing.Point(Width / 2 - this.menu_panel.Width / 2, Height / 2 - this.menu_panel.Height / 2);
-            this.lbl_title.Location = new System.Drawing.Point(this.menu_panel.Width / 2 - this.lbl_title.Width / 2,
+            this.menu_panel.Location = new Point(Width / 2 - this.menu_panel.Width / 2, Height / 2 - this.menu_panel.Height / 2);
+            this.lbl_title.Location = new Point(this.menu_panel.Width / 2 - this.lbl_title.Width / 2,
                 this.menu_panel.Top + 10);
-            this.intro_label.Location = new System.Drawing.Point(this.menu_panel.Width / 2 - this.intro_label.Width / 2,
+            this.intro_label.Location = new Point(this.menu_panel.Width / 2 - this.intro_label.Width / 2,
                 this.lbl_title.Bottom + 70);
-            this.btn_start.Location = new System.Drawing.Point(this.menu_panel.Width / 2 - this.btn_start.Width / 2,
+            this.btn_start.Location = new Point(this.menu_panel.Width / 2 - this.btn_start.Width / 2,
                 this.intro_label.Bottom + 70);
-            this.btn_quit.Location = new System.Drawing.Point(this.menu_panel.Width / 2 - this.btn_quit.Width / 2,
+            this.btn_quit.Location = new Point(this.menu_panel.Width / 2 - this.btn_quit.Width / 2,
                 this.btn_start.Bottom + 250);
 
 
@@ -63,11 +61,6 @@ namespace Finale.Forms {
 
             base.OnKeyDown(sender, e);
             e.Handled = true;
-        }
-
-        private void Entry_Load(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

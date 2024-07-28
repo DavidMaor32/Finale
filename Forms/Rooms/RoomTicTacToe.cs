@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Finale.Forms.Rooms
 {
-    public partial class RoomTicTacToe : Form
+    public partial class RoomTicTacToe : RoomBase
     {
 
         public enum Player
