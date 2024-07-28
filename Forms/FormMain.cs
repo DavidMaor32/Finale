@@ -106,21 +106,15 @@ namespace Finale.Forms {
             if (this.is_playing)
                 return;
 
-            UpdateLocation();
-
+            //if obtained all keys
             bool end = this.data.Solved.Length == Enum.GetValues(typeof(RoomCode)).Length;
-            if (this.player.Bounds.IntersectsWith(this.gate_final.Bounds) && !end)
-                this.player.Location = new Point(this.player.Location.X - speed, this.player.Location.Y);
-            else if (this.player.Bounds.IntersectsWith(this.gate_final.Bounds)) {
-                if (MessageBox.Show("Congratulations! You have completed the game!\nDo you want to save your progress?", "Game Over", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    FileHelper.SaveGame(this.path_save, this.data.Record());
-                DialogResult = DialogResult.OK;
-                Dispose();
-            }
+            bool touch_end = this.player.Bounds.IntersectsWith(this.gate_final.Bounds);
+            UpdateLocation();
 
             PictureBox key = GetIntersectedKey();
 
-            if (key == null) {
+
+            if (key == null && !touch_end) {
                 this.overlay = false;
                 return;
             }
@@ -134,6 +128,24 @@ namespace Finale.Forms {
             this.overlay = true;
             DialogResult res = DialogResult.None;
             Point p = this.player.Location;
+
+
+
+
+            if (touch_end && !end) {
+                this.player.Location = new Point(this.player.Location.X - speed, this.player.Location.Y);
+            }
+            else if (touch_end) {
+                this.left = this.right = this.up = this.down = false;
+                this.is_playing = true;
+                if (MessageBox.Show("Congratulations! You have completed the game!", "Game Over", MessageBoxButtons.OKCancel) == DialogResult.OK) {
+                    DialogResult = DialogResult.OK;
+                    Dispose();
+                }
+                this.player.Location = new Point(p.X - 2 * speed, p.Y);
+                this.is_playing = false;
+                return;
+            }
 
 
             //room math
@@ -160,7 +172,22 @@ namespace Finale.Forms {
                 else
                     p = new Point(p.X - speed, p.Y);
             }
-
+            //room <name>
+            /*if (key == this.key4) {
+                res = new < RoomName > ().ShowDialog();
+                if (res == DialogResult.Yes)
+                    this.data.AddRoom(RoomCode<Name>);
+                else
+                    p = new Point(p.X - speed, p.Y + speed);
+            }*/
+            //room <name>
+            /*if (key == this.key5) {
+                res = new < RoomName > ().ShowDialog();
+                if (res == DialogResult.Yes)
+                    this.data.AddRoom(RoomCode<Name>);
+                else
+                    p = new Point(p.X + speed, p.Y);
+            }*/
 
             //eliminating obtained keys and walls
             if (res == DialogResult.Yes) {

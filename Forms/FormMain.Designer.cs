@@ -74,15 +74,20 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.wall1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.wall4 = new System.Windows.Forms.Label();
             this.wall2 = new System.Windows.Forms.Label();
             this.key1 = new System.Windows.Forms.PictureBox();
             this.key2 = new System.Windows.Forms.PictureBox();
             this.key3 = new System.Windows.Forms.PictureBox();
             this.wall3 = new System.Windows.Forms.Label();
+            this.key4 = new System.Windows.Forms.PictureBox();
+            this.key5 = new System.Windows.Forms.PictureBox();
+            this.wall5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.key1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -585,15 +590,15 @@
             this.wall1.TabIndex = 112;
             this.wall1.Tag = "wall";
             // 
-            // label16
+            // wall4
             // 
-            this.label16.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label16.Location = new System.Drawing.Point(465, 166);
-            this.label16.Margin = new System.Windows.Forms.Padding(0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(5, 32);
-            this.label16.TabIndex = 113;
-            this.label16.Tag = "wall";
+            this.wall4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.wall4.Location = new System.Drawing.Point(465, 166);
+            this.wall4.Margin = new System.Windows.Forms.Padding(0);
+            this.wall4.Name = "wall4";
+            this.wall4.Size = new System.Drawing.Size(5, 32);
+            this.wall4.TabIndex = 113;
+            this.wall4.Tag = "wall";
             // 
             // wall2
             // 
@@ -619,7 +624,7 @@
             // key2
             // 
             this.key2.Image = ((System.Drawing.Image)(resources.GetObject("key2.Image")));
-            this.key2.Location = new System.Drawing.Point(12, 209);
+            this.key2.Location = new System.Drawing.Point(17, 216);
             this.key2.Name = "key2";
             this.key2.Size = new System.Drawing.Size(16, 16);
             this.key2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -648,17 +653,52 @@
             this.wall3.TabIndex = 119;
             this.wall3.Tag = "wall";
             // 
+            // key4
+            // 
+            this.key4.Image = ((System.Drawing.Image)(resources.GetObject("key4.Image")));
+            this.key4.Location = new System.Drawing.Point(540, 189);
+            this.key4.Name = "key4";
+            this.key4.Size = new System.Drawing.Size(16, 16);
+            this.key4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.key4.TabIndex = 120;
+            this.key4.TabStop = false;
+            this.key4.Tag = "key";
+            // 
+            // key5
+            // 
+            this.key5.Image = ((System.Drawing.Image)(resources.GetObject("key5.Image")));
+            this.key5.Location = new System.Drawing.Point(434, 174);
+            this.key5.Name = "key5";
+            this.key5.Size = new System.Drawing.Size(16, 16);
+            this.key5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.key5.TabIndex = 121;
+            this.key5.TabStop = false;
+            this.key5.Tag = "key";
+            // 
+            // wall5
+            // 
+            this.wall5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.wall5.Location = new System.Drawing.Point(560, 0);
+            this.wall5.Margin = new System.Windows.Forms.Padding(0);
+            this.wall5.Name = "wall5";
+            this.wall5.Size = new System.Drawing.Size(10, 10);
+            this.wall5.TabIndex = 122;
+            this.wall5.Tag = "wall";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(569, 312);
+            this.Controls.Add(this.wall5);
+            this.Controls.Add(this.key5);
+            this.Controls.Add(this.key4);
             this.Controls.Add(this.wall3);
             this.Controls.Add(this.key3);
             this.Controls.Add(this.key2);
             this.Controls.Add(this.key1);
             this.Controls.Add(this.wall2);
-            this.Controls.Add(this.label16);
+            this.Controls.Add(this.wall4);
             this.Controls.Add(this.wall1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label41);
@@ -718,6 +758,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.key1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.key2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.key3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -774,11 +816,14 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label wall1;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label wall4;
         private System.Windows.Forms.Label wall2;
         private System.Windows.Forms.PictureBox key1;
         private System.Windows.Forms.PictureBox key2;
         private System.Windows.Forms.PictureBox key3;
         private System.Windows.Forms.Label wall3;
+        private System.Windows.Forms.PictureBox key4;
+        private System.Windows.Forms.PictureBox key5;
+        private System.Windows.Forms.Label wall5;
     }
 }
