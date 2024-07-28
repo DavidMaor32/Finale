@@ -31,13 +31,6 @@ namespace Finale.UserControls {
             Controls.Add(this.lbl_char);
 
         }
-
-        public void Reset() {
-            this.lbl_char.ForeColor = Color.Black;
-            this.lbl_char.BackColor = SystemColors.Control;
-            this.lbl_char.Text = "_";
-        }
-
         public void SetColor(ResultWordle result) {
             switch (result) {
                 case ResultWordle.Match:

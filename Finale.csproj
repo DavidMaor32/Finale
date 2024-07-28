@@ -62,13 +62,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\GetPlayerName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\GetPlayerName.Designer.cs">
+      <DependentUpon>GetPlayerName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\SavedGamesPicker.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Components\SavedGamesPicker.Designer.cs">
       <DependentUpon>SavedGamesPicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Enums\Rooms.cs" />
+    <Compile Include="Enums\RoomCode.cs" />
     <Compile Include="Forms\Entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,12 @@
     </Compile>
     <Compile Include="Forms\FormBase.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rooms\RoomSimonSays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rooms\RoomSimonSays.Designer.cs">
+      <DependentUpon>RoomSimonSays.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Rooms\RoomSortNumbers.cs">
       <SubType>Form</SubType>
@@ -91,24 +103,13 @@
       <DependentUpon>RoomTicTacToe.cs</DependentUpon>
     </Compile>
     <Compile Include="Games\Math\MathOperator.cs" />
-    <Compile Include="Games\Simon\ResultSimon.cs" />
     <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rooms\RoomGameOfLife.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Rooms\RoomGameOfLife.Designer.cs">
-      <DependentUpon>RoomGameOfLife.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Games\GameOfLife.cs" />
-    <Compile Include="Games\TicTieToe\State.cs" />
-    <Compile Include="Games\TicTieToe\TicTieToe.cs" />
     <Compile Include="Games\Wordle\ResultWordle.cs" />
-    <Compile Include="Games\Simon\ColorSimon.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Forms\Rooms\RoomBase.cs">
       <SubType>Form</SubType>
@@ -119,26 +120,23 @@
     <Compile Include="Forms\Rooms\RoomQuickMath.Designer.cs">
       <DependentUpon>RoomQuickMath.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rooms\RoomSimonSays.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Rooms\RoomSimonSays.Designer.cs">
-      <DependentUpon>RoomSimonSays.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Rooms\RoomWordle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Rooms\RoomWordle.Designer.cs">
       <DependentUpon>RoomWordle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Games\HanoiTowers.cs" />
     <Compile Include="Games\Math\MathSolve.cs" />
-    <Compile Include="Games\Simon\SimonSays.cs" />
     <Compile Include="Games\Wordle\Wordle.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\RecordData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ViewerLetter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,7 +150,9 @@
       <DependentUpon>ViewerWord.cs</DependentUpon>
     </Compile>
     <Compile Include="Values\Paths.cs" />
-    <Compile Include="Values\Strings.cs" />
+    <EmbeddedResource Include="Components\GetPlayerName.resx">
+      <DependentUpon>GetPlayerName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\SavedGamesPicker.resx">
       <DependentUpon>SavedGamesPicker.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,9 +163,6 @@
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rooms\RoomGameOfLife.resx">
-      <DependentUpon>RoomGameOfLife.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rooms\RoomQuickMath.resx">
       <DependentUpon>RoomQuickMath.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,19 +172,17 @@
     <EmbeddedResource Include="Forms\Rooms\RoomSortNumbers.resx">
       <DependentUpon>RoomSortNumbers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rooms\RoomTicTacToe.resx">
+      <DependentUpon>RoomTicTacToe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rooms\RoomWordle.resx">
       <DependentUpon>RoomWordle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UserControls\ViewerLetter.resx">
       <DependentUpon>ViewerLetter.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,10 +203,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\key.png" />
     <None Include="Resources\image.png" />
     <None Include=".gitignore" />
-    <Content Include="Assets\key.png" />
+    <Content Include="Resources\key.png" />
+    <Content Include="Resources\player.png" />
     <Content Include="Games\Wordle\valid-wordle-words.txt" />
   </ItemGroup>
   <ItemGroup>

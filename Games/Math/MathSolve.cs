@@ -1,13 +1,6 @@
 ﻿using System;
 namespace Finale.Games {
     public class MathQuiz {
-
-        public static int add(int a, int b) => a + b;
-        public static int sub(int a, int b) => a - b;
-        public static int mul(int a, int b) => a * b;
-        public static int div(int a, int b) => a / b;
-
-
         public Expr GetRandomExpression() {
             Random r = new Random();
 
@@ -29,9 +22,7 @@ namespace Finale.Games {
         private static MathOperator getRandomOpt() {
             Array vals = Enum.GetValues(typeof(MathOperator));
             int i = new Random().Next(vals.Length);
-#pragma warning disable CS8605 // Unboxing a possibly null value.
             return (MathOperator)vals.GetValue(i);
-#pragma warning restore CS8605 // Unboxing a possibly null value.
         }
     }
     public readonly struct Expr {
@@ -43,7 +34,6 @@ namespace Finale.Games {
             this.operand2 = b;
             this.op = op;
         }
-
         public int Val() {
             if (this.op == MathOperator.Add)
                 return this.operand1 + this.operand2;
@@ -57,7 +47,6 @@ namespace Finale.Games {
                 return int.MaxValue;
 
         }
-
         public override string ToString() {
             return $"{this.operand1} {this.op} {this.operand2}";
         }

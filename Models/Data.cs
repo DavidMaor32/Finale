@@ -10,10 +10,13 @@ namespace Finale.Models {
         private TimeSpan time;
         private List<RoomCode>  solved_rooms;
 
-        public RoomCode[] Solved { 
+        public RoomCode[] Solved {
             get {
-                return solved_rooms.ToArray();
-            } 
+                return this.solved_rooms.ToArray();
+            }
+        }
+        public string Name {
+            get; set;
         }
 
         private static Data instance;
@@ -21,9 +24,10 @@ namespace Finale.Models {
         private Data(RecordData record) {
             this.lives = record.lives;
             this.time = record.time;
+            Name = record.name;
             this.solved_rooms = new List<RoomCode>();
-            foreach(RoomCode c in record.solved_rooms)
-                solved_rooms.Add(c);
+            foreach (RoomCode c in record.solved_rooms)
+                this.solved_rooms.Add(c);
         }
 
         public static Data Instance() {
@@ -36,9 +40,10 @@ namespace Finale.Models {
         public void Update(RecordData record) {
             this.lives = record.lives;
             this.time = record.time;
+            Name = record.name;
             this.solved_rooms = new List<RoomCode>();
             foreach (RoomCode c in record.solved_rooms)
-                solved_rooms.Add(c);
+                this.solved_rooms.Add(c);
         }
 
         public void AddInterval(TimeSpan interval) {
@@ -46,19 +51,14 @@ namespace Finale.Models {
         }
 
         public void AddRoom(RoomCode code) {
-            if(solved_rooms.Contains(code)) return;
+            if (this.solved_rooms.Contains(code))
+                return;
 
-            solved_rooms.Add (code);
+            this.solved_rooms.Add(code);
         }
 
         public RecordData Record() {
-            return new RecordData(this.time, this.lives, this.solved_rooms.ToArray());
-        }
-
-        public bool Exists(RoomCode code) => solved_rooms.Contains(code);
-
-        public override string ToString() {
-            return $"time:{time.ToString()} lives:{lives} rooms:{solved_rooms.ToString()}";
+            return new RecordData(this.time, this.lives, this.solved_rooms.ToArray(), Name);
         }
     }
 }

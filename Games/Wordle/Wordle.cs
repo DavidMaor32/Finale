@@ -48,13 +48,13 @@ namespace Finale.Wordle {
                 if (res[i] == ResultWordle.Match)
                     continue;
                 if (Count(copy, guess[i]) == 0)
-                    res[i] = ResultWordle.Wrong;
-                else {
-                    res[i] = guess[i] == copy[i] ? ResultWordle.Match : ResultWordle.Misplace;
-                    copy = ReplaceAt(copy, IndexOf(copy, guess[i]), '$');
-                }
+                    continue;
 
+                res[i] = guess[i] == copy[i] ? ResultWordle.Match : ResultWordle.Misplace;
+                //replacing letters that were checked with $ to deal with double/triple letters
+                copy = ReplaceAt(copy, IndexOf(copy, guess[i]), '$');
             }
+
             this.guesses_left--;
             if (this.guesses_left == 0 && !(res.All(r => r == ResultWordle.Match)))
                 throw new InvalidOperationException("No more guesses left! the word is:" + this.word);

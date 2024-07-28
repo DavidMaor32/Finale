@@ -37,11 +37,18 @@ namespace Finale.Forms {
             Height = Screen.PrimaryScreen.Bounds.Height;
             this.help_str = @"The main goal is to beat all the rooms to get to the end...";
 
+            this.data = Data.Instance();
+
             this.path_save = path;
             this.walls = new List<Label>();
             this.keys = new List<PictureBox>();
-            this.data = Data.Instance();
             this.player.BringToFront();
+
+            this.EngineTimer = new Timer();
+            this.EngineTimer.Interval = interval;
+            this.EngineTimer.Tick += OnTick;
+            this.EngineTimer.Start();
+
 
             //scaling from designer
             int init_width = 569, init_height = 312;
@@ -57,6 +64,18 @@ namespace Finale.Forms {
                 c.Height += c.Height % 8;
             }
 
+
+            this.player.BackColor = Color.Transparent;
+
+
+            this.lbl_name.Height = this.label8.Height;
+            this.lbl_name.Location = new Point(this.label6.Width, 0);
+            this.lbl_name.Text = this.data.Name;
+            this.lbl_name.BackColor = COLOR_WALL;
+            this.lbl_name.ForeColor = Color.White;
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Font = new Font("Arial", 0.58f * this.label8.Height, FontStyle.Bold);
+
             //grouping based on tag
             foreach (Control control in Controls) {
                 control.Margin = new Padding(0);
@@ -68,6 +87,8 @@ namespace Finale.Forms {
                     this.keys.Add((PictureBox)control);
                     control.BackColor = Color.Transparent;
                 }
+                if (control.Name.StartsWith("gate"))
+                    control.BackColor = COLOR_GATE;
             }
 
             //eliminating obtained keys and walls
@@ -87,14 +108,6 @@ namespace Finale.Forms {
                 GC.Collect();
             }
 
-
-
-            this.EngineTimer = new Timer();
-            this.EngineTimer.Interval = interval;
-            this.EngineTimer.Tick += OnTick;
-            this.EngineTimer.Start();
-
-
             KeyDown += OnKeyDown;
             KeyPress += OnKeyPress;
             KeyUp += OnKeyUp;
@@ -103,6 +116,7 @@ namespace Finale.Forms {
 
         private void OnTick(object sender, EventArgs e) {
             this.data.AddInterval(new TimeSpan(0, 0, 1));
+            this.lbl_name.Text = this.data.Name + " " + this.data.Record().time.ToString("hh':'mm':'ss");
             if (this.is_playing)
                 return;
 
@@ -141,7 +155,7 @@ namespace Finale.Forms {
             else if (touch_end) {
                 this.left = this.right = this.up = this.down = false;
                 this.is_playing = true;
-                if (MessageBox.Show("Congratulations! You have completed the game!", "Game Over", MessageBoxButtons.OKCancel) == DialogResult.OK) {
+                if (MessageBox.Show($"Congratulations! You have completed the game!\n\"{this.data.Name} spent only {this.data.Record().time.ToString()}playing...\"", "Game Over", MessageBoxButtons.OKCancel) == DialogResult.OK) {
                     DialogResult = DialogResult.OK;
                     Dispose();
                 }
@@ -183,14 +197,14 @@ namespace Finale.Forms {
                 else
                     p = new Point(p.X - speed, p.Y + speed);
             }
-            //room <name>
-            /*if (key == this.key5) {
-                res = new < RoomName > ().ShowDialog();
+            //room SimonSays
+            if (key == this.key5) {
+                res = new RoomSimonSays().ShowDialog();
                 if (res == DialogResult.Yes)
-                    this.data.AddRoom(RoomCode<Name>);
+                    this.data.AddRoom(RoomCode.SimonSays);
                 else
                     p = new Point(p.X + speed, p.Y);
-            }*/
+            }
 
             //eliminating obtained keys and walls
             if (res == DialogResult.Yes) {

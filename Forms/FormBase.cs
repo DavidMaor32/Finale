@@ -1,9 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Finale.Forms {
     public class FormBase : Form {
         protected string help_str = "";
         public FormBase() {
+
+            BackColor = ColorTranslator.FromHtml("#D8DDEF");
             FormBorderStyle = FormBorderStyle.None;
             Size = Screen.PrimaryScreen.Bounds.Size;
             WindowState = FormWindowState.Maximized;

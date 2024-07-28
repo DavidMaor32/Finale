@@ -18,7 +18,6 @@ namespace Finale.UserControls {
             this.letters.Height = this.letters.Controls[0].Height;
             Controls.Add(this.letters);
         }
-
         public void SetWord(string word) {
             this.word = word;
             int i;
@@ -28,16 +27,9 @@ namespace Finale.UserControls {
             for (; i < this.letters.Controls.Count; i++)
                 ((ViewerLetter)this.letters.Controls[i]).Character = '_';
         }
-
         public void SetColor(ResultWordle[] res) {
             for (int i = 0; i < this.letters.Controls.Count; i++) {
                 ((ViewerLetter)this.letters.Controls[i]).SetColor(res[i]);
-            }
-        }
-
-        public void Reset() {
-            for (int i = 0; i < this.letters.Controls.Count; i++) {
-                ((ViewerLetter)this.letters.Controls[i]).Reset();
             }
         }
     }

@@ -21,9 +21,11 @@ namespace Finale.Helpers {
             RecordData data;
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream stream = File.OpenRead(path)) {
+                if (stream.Length == 0) {
+                    return RecordData.Default();
+                }
                 data = (RecordData)formatter.Deserialize(stream);
             }
-
             return data;
         }
         public static void DeleteGame(string path) {

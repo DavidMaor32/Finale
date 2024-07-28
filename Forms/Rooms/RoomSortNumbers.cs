@@ -7,6 +7,7 @@ namespace Finale.Forms.Rooms {
     public partial class RoomSortNumbers : RoomBase {
         int SIZE = 4;
         Button[][] buttons;
+        int easter_egg = 10;
         public RoomSortNumbers() {
             InitializeComponent();
 
@@ -35,6 +36,18 @@ namespace Finale.Forms.Rooms {
         }
         private void OnClick(object sender, System.EventArgs e) {
             Button button = sender as Button;
+
+            if (button.Equals(this.buttons[0][0])) {
+                this.easter_egg--;
+                if (this.easter_egg == 0) {
+                    MessageBox.Show("You found the easter egg!");
+                    DialogResult = DialogResult.Yes;
+                    Close();
+                }
+            }
+            else
+                this.easter_egg = 10;
+
             if (button.Text == "")
                 return;
             int row = int.Parse(button.Tag.ToString().Split(',')[0]);

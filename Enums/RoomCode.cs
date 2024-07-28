@@ -3,6 +3,7 @@
         TicTacToe = 1,
         Math,
         Wordle,
-        Sort
+        Sort,
+        SimonSays
     }
 }

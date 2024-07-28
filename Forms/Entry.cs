@@ -10,7 +10,6 @@ namespace Finale.Forms {
         public Entry() {
             InitializeComponent();
 
-            BackColor = ColorTranslator.FromHtml("#D8DDEF");
 
             Width = Screen.PrimaryScreen.Bounds.Width;
             Height = Screen.PrimaryScreen.Bounds.Height;
@@ -38,8 +37,25 @@ namespace Finale.Forms {
                 return;
             Data data = Data.Instance();
             try {
+                string name;
+                DialogResult res = DialogResult.None;
                 RecordData rec= FileHelper.LoadGame(path);
                 data.Update(rec);
+                if (rec.name.Equals(RecordData.DEFAULT_NAME)) {
+                    res = GetPlayerName.ShowDialog(out name);
+                    if (res != DialogResult.OK) {
+                        FileHelper.DeleteGame(path);
+                    }
+                    else {
+                        Data.Instance().Name = name;
+                    }
+                }
+                else
+                    name = rec.name;
+
+                if (rec.name.Equals(RecordData.DEFAULT_NAME) && res != DialogResult.OK)
+                    return;
+
                 ShowInTaskbar = false;
                 new FormMain(path).ShowDialog();
                 ShowInTaskbar = true;

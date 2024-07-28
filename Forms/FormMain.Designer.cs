@@ -45,7 +45,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.player = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
@@ -83,11 +82,26 @@
             this.key4 = new System.Windows.Forms.PictureBox();
             this.key5 = new System.Windows.Forms.PictureBox();
             this.wall5 = new System.Windows.Forms.Label();
+            this.lbl_name = new System.Windows.Forms.Label();
+            this.player = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.key1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -299,16 +313,6 @@
             this.label33.Size = new System.Drawing.Size(11, 42);
             this.label33.TabIndex = 40;
             this.label33.Tag = "wall";
-            // 
-            // player
-            // 
-            this.player.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.player.Location = new System.Drawing.Point(16, 65);
-            this.player.Margin = new System.Windows.Forms.Padding(0);
-            this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(11, 10);
-            this.player.TabIndex = 37;
-            this.player.Tag = "player";
             // 
             // label43
             // 
@@ -649,7 +653,7 @@
             this.wall3.Location = new System.Drawing.Point(422, 75);
             this.wall3.Margin = new System.Windows.Forms.Padding(0);
             this.wall3.Name = "wall3";
-            this.wall3.Size = new System.Drawing.Size(38, 10);
+            this.wall3.Size = new System.Drawing.Size(38, 5);
             this.wall3.TabIndex = 119;
             this.wall3.Tag = "wall";
             // 
@@ -685,11 +689,107 @@
             this.wall5.TabIndex = 122;
             this.wall5.Tag = "wall";
             // 
+            // lbl_name
+            // 
+            this.lbl_name.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_name.Location = new System.Drawing.Point(1, 1);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(49, 15);
+            this.lbl_name.TabIndex = 123;
+            this.lbl_name.Tag = "a";
+            this.lbl_name.Text = "lbl_name";
+            // 
+            // player
+            // 
+            this.player.BackColor = System.Drawing.Color.Transparent;
+            this.player.Image = ((System.Drawing.Image)(resources.GetObject("player.Image")));
+            this.player.Location = new System.Drawing.Point(13, 62);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(13, 17);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.player.TabIndex = 124;
+            this.player.TabStop = false;
+            this.player.Tag = "player";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(337, 172);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 125;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "decoy";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(188, 278);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 126;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "decoy";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(536, 21);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 127;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "decoy";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(388, 99);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 128;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Tag = "decoy";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(94, 136);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 129;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Tag = "decoy";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(137, 18);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 130;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Tag = "decoy";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(569, 312);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.player);
+            this.Controls.Add(this.lbl_name);
             this.Controls.Add(this.wall5);
             this.Controls.Add(this.key5);
             this.Controls.Add(this.key4);
@@ -728,7 +828,6 @@
             this.Controls.Add(this.label49);
             this.Controls.Add(this.label50);
             this.Controls.Add(this.label33);
-            this.Controls.Add(this.player);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label22);
@@ -760,6 +859,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.key3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.key4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.key5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -787,7 +893,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label player;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label48;
@@ -825,5 +930,13 @@
         private System.Windows.Forms.PictureBox key4;
         private System.Windows.Forms.PictureBox key5;
         private System.Windows.Forms.Label wall5;
+        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.PictureBox player;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

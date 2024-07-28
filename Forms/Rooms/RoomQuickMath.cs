@@ -6,7 +6,7 @@ using Finale.Games;
 namespace Finale.Forms.Rooms {
     public partial class RoomQuickMath : RoomBase {
 
-        private static readonly int GOAL = 4;
+        private static readonly int GOAL = 5;
         private static readonly int TIME_SEC = 15;
         private static readonly TimeSpan COUNTDOWN = TimeSpan.FromSeconds(TIME_SEC);
         private TimeSpan _time;
