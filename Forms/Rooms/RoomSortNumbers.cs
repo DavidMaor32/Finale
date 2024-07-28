@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Finale.Forms.Rooms {
@@ -9,6 +10,7 @@ namespace Finale.Forms.Rooms {
         public RoomSortNumbers() {
             InitializeComponent();
 
+            BackColor = ColorTranslator.FromHtml("#D8DDEF");
             this.help_str = "Rearrange the numbers in ascending order by moving the empty cell to the right, left, up or down."
                 + "so for example, 3x3 would be like that: \n1 2 3\n4 5 6\n7 8";
 
@@ -99,6 +101,26 @@ namespace Finale.Forms.Rooms {
                     }
                 }
             }
+        }
+
+        private bool IsSolveable() {
+            int inversions = 0;
+            int[] arr = new int[this.SIZE * this.SIZE - 1];
+            int i = 0;
+            for (int row = 0; row < this.SIZE; row++) {
+                for (int col = 0; col < this.SIZE; col++) {
+                    if (this.buttons[row][col].Text != "") {
+                        arr[i++] = int.Parse(this.buttons[row][col].Text);
+                    }
+                }
+            }
+            for (i = 0; i < arr.Length - 1; i++) {
+                for (int j = i + 1; j < arr.Length; j++) {
+                    if (arr[i] > arr[j])
+                        inversions++;
+                }
+            }
+            return inversions % 2 == 0;
         }
     }
 }

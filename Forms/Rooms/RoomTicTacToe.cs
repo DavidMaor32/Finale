@@ -1,101 +1,89 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Finale.Forms.Rooms
-{
-    public partial class RoomTicTacToe : RoomBase
-    {
+namespace Finale.Forms.Rooms {
+    public partial class RoomTicTacToe : RoomBase {
 
-        public enum Player
-        {
+        public enum Player {
             X, O
         }
 
         Player currentPlayer;
         Random random = new Random();
         List<Button> buttons;
+        bool pause = false;
 
-
-        public RoomTicTacToe()
-        {
+        public RoomTicTacToe() {
             InitializeComponent();
             StartGame();
         }
 
-        private void CPUMove(object sender, EventArgs e)
-        {
-            if (buttons.Count > 0)
-            {
-                int index=random.Next(buttons.Count);
-                buttons[index].Enabled=false;
-                currentPlayer = Player.O;
-                buttons[index].Text = currentPlayer.ToString();
-                buttons[index].BackColor=Color.DarkSalmon;
-                buttons.RemoveAt(index);
+        private void CPUMove(object sender, EventArgs e) {
+            if (this.buttons.Count > 0) {
+                int index=this.random.Next(this.buttons.Count);
+                this.buttons[index].Enabled = false;
+                this.currentPlayer = Player.O;
+                this.buttons[index].Text = this.currentPlayer.ToString();
+                this.buttons[index].BackColor = Color.DarkSalmon;
+                this.buttons.RemoveAt(index);
                 CheckGame();
-                CPUTimer.Stop();
+                this.CPUTimer.Stop();
+                this.pause = false;
             }
         }
 
-        private void PlayerClickButton(object sender, EventArgs e)
-        {
+        private void PlayerClickButton(object sender, EventArgs e) {
+            if (this.pause) {
+                return;
+            }
             var button = (Button)sender;
-            currentPlayer = Player.X;
-            button.Text = currentPlayer.ToString();
-            button.Enabled=false;
-            button.BackColor=Color.LightPink;
-            buttons.Remove(button);
+            this.currentPlayer = Player.X;
+            button.Text = this.currentPlayer.ToString();
+            button.Enabled = false;
+            button.BackColor = Color.LightPink;
+            this.buttons.Remove(button);
             CheckGame();
-            CPUTimer.Start();
+            this.pause = true;
+            this.CPUTimer.Start();
         }
 
-        private void CheckGame()
-        {
-           if(button1.Text=="X" && button2.Text == "X" && button3.Text == "X"
-                || button4.Text == "X" && button5.Text == "X" && button6.Text == "X"
-                || button7.Text == "X" && button8.Text == "X" && button9.Text == "X"
-                || button1.Text == "X" && button4.Text == "X" && button7.Text == "X"
-                || button2.Text == "X" && button5.Text == "X" && button8.Text == "X"
-                || button3.Text == "X" && button6.Text == "X" && button9.Text == "X"
-                || button1.Text == "X" && button5.Text == "X" && button9.Text == "X"
-                || button3.Text == "X" && button5.Text == "X" && button7.Text == "X")
-            {
-                CPUTimer.Stop();
+        private void CheckGame() {
+            if (this.button1.Text == "X" && this.button2.Text == "X" && this.button3.Text == "X"
+                 || this.button4.Text == "X" && this.button5.Text == "X" && this.button6.Text == "X"
+                 || this.button7.Text == "X" && this.button8.Text == "X" && this.button9.Text == "X"
+                 || this.button1.Text == "X" && this.button4.Text == "X" && this.button7.Text == "X"
+                 || this.button2.Text == "X" && this.button5.Text == "X" && this.button8.Text == "X"
+                 || this.button3.Text == "X" && this.button6.Text == "X" && this.button9.Text == "X"
+                 || this.button1.Text == "X" && this.button5.Text == "X" && this.button9.Text == "X"
+                 || this.button3.Text == "X" && this.button5.Text == "X" && this.button7.Text == "X") {
+                this.CPUTimer.Stop();
                 MessageBox.Show("You WON!");
                 DialogResult = DialogResult.Yes;
                 Close();
 
             }
-            else if (button1.Text == "O" && button2.Text == "O" && button3.Text == "O"
-                || button4.Text == "O" && button5.Text == "O" && button6.Text == "O"
-                || button7.Text == "O" && button8.Text == "O" && button9.Text == "O"
-                || button1.Text == "O" && button4.Text == "O" && button7.Text == "O"
-                || button2.Text == "O" && button5.Text == "O" && button8.Text == "O"
-                || button3.Text == "O" && button6.Text == "O" && button9.Text == "O"
-                || button1.Text == "O" && button5.Text == "O" && button9.Text == "O"
-                || button3.Text == "O" && button5.Text == "O" && button7.Text == "O")
-            {
-                CPUTimer.Stop();
+            else if (this.button1.Text == "O" && this.button2.Text == "O" && this.button3.Text == "O"
+                || this.button4.Text == "O" && this.button5.Text == "O" && this.button6.Text == "O"
+                || this.button7.Text == "O" && this.button8.Text == "O" && this.button9.Text == "O"
+                || this.button1.Text == "O" && this.button4.Text == "O" && this.button7.Text == "O"
+                || this.button2.Text == "O" && this.button5.Text == "O" && this.button8.Text == "O"
+                || this.button3.Text == "O" && this.button6.Text == "O" && this.button9.Text == "O"
+                || this.button1.Text == "O" && this.button5.Text == "O" && this.button9.Text == "O"
+                || this.button3.Text == "O" && this.button5.Text == "O" && this.button7.Text == "O") {
+                this.CPUTimer.Stop();
                 MessageBox.Show("You LOST!");
                 DialogResult = DialogResult.Yes;
                 Close();
             }
         }
 
-        private void StartGame()
-        {
-            buttons = new List<Button>{button1, button2, button3,
-                                                    button4, button5, button6,
-                                                    button7, button8, button9};
-            foreach (Button x in buttons)
-            {
+        private void StartGame() {
+            this.buttons = new List<Button>{this.button1, this.button2, this.button3,
+                                                    this.button4, this.button5, this.button6,
+                                                    this.button7, this.button8, this.button9};
+            foreach (Button x in this.buttons) {
                 x.Enabled = true;
                 x.Text = "?";
                 x.BackColor = DefaultBackColor;

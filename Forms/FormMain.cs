@@ -134,6 +134,9 @@ namespace Finale.Forms {
 
             if (touch_end && !end) {
                 this.player.Location = new Point(this.player.Location.X - speed, this.player.Location.Y);
+                this.overlay = false;
+                this.is_playing = false;
+                return;
             }
             else if (touch_end) {
                 this.left = this.right = this.up = this.down = false;
@@ -148,8 +151,16 @@ namespace Finale.Forms {
             }
 
 
-            //room math
+            //room tic tac toe
             if (key == this.key1) {
+                res = new RoomTicTacToe().ShowDialog();
+                if (res == DialogResult.Yes)
+                    this.data.AddRoom(RoomCode.TicTacToe);
+                else
+                    p = new Point(p.X - speed, p.Y);
+            }
+            //room math
+            if (key == this.key2) {
                 res = new RoomQuickMath().ShowDialog();
                 if (res == DialogResult.Yes)
                     this.data.AddRoom(RoomCode.Math);
@@ -157,7 +168,7 @@ namespace Finale.Forms {
                     p = new Point(p.X - speed, p.Y);
             }
             //room wordle
-            if (key == this.key2) {
+            if (key == this.key3) {
                 res = new RoomWordle().ShowDialog();
                 if (res == DialogResult.Yes)
                     this.data.AddRoom(RoomCode.Wordle);
@@ -165,21 +176,13 @@ namespace Finale.Forms {
                     p = new Point(p.X - speed, p.Y);
             }
             //room sort
-            if (key == this.key3) {
+            if (key == this.key4) {
                 res = new RoomSortNumbers().ShowDialog();
                 if (res == DialogResult.Yes)
                     this.data.AddRoom(RoomCode.Sort);
                 else
-                    p = new Point(p.X - speed, p.Y);
-            }
-            //room <name>
-            /*if (key == this.key4) {
-                res = new < RoomName > ().ShowDialog();
-                if (res == DialogResult.Yes)
-                    this.data.AddRoom(RoomCode<Name>);
-                else
                     p = new Point(p.X - speed, p.Y + speed);
-            }*/
+            }
             //room <name>
             /*if (key == this.key5) {
                 res = new < RoomName > ().ShowDialog();

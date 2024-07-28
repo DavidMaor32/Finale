@@ -1,6 +1,7 @@
 ﻿namespace Finale.Enums {
     public enum RoomCode {
-        Math = 1,
+        TicTacToe = 1,
+        Math,
         Wordle,
         Sort
     }
