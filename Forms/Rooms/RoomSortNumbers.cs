@@ -13,7 +13,7 @@ namespace Finale.Forms.Rooms {
 
             BackColor = ColorTranslator.FromHtml("#D8DDEF");
             this.help_str = "Rearrange the numbers in ascending order by moving the empty cell to the right, left, up or down."
-                + "so for example, 3x3 would be like that: \n1 2 3\n4 5 6\n7 8";
+                + "so for example, 4x4 would be like that: \n1 2 3 4\n 5 6 7 8\n 9 10 11 12\n 13 14 15";
 
             Width = Screen.PrimaryScreen.Bounds.Width;
             Height = Screen.PrimaryScreen.Bounds.Height;
@@ -41,6 +41,7 @@ namespace Finale.Forms.Rooms {
                 this.easter_egg--;
                 if (this.easter_egg == 0) {
                     MessageBox.Show("You found the easter egg!");
+                    MessageBox.Show("You win!");
                     DialogResult = DialogResult.Yes;
                     Close();
                 }

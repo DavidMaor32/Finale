@@ -153,7 +153,7 @@ namespace Finale.Forms {
             else if (touch_end) {
                 this.left = this.right = this.up = this.down = false;
                 this.is_playing = true;
-                if (MessageBox.Show($"Congratulations! You have completed the game!\n\"{this.data.Name} spent only {this.data.Record().time.ToString()}playing...\"", "Game Over", MessageBoxButtons.OKCancel) == DialogResult.OK) {
+                if (MessageBox.Show($"Congratulations! You have completed the game!\n\"{this.data.Name} spent only {this.data.Record().time.ToString()} playing...\"", "Game Over", MessageBoxButtons.OKCancel) == DialogResult.OK) {
                     DialogResult = DialogResult.OK;
                     Dispose();
                 }

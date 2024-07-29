@@ -29,6 +29,7 @@ namespace Finale.Forms.Rooms {
             SetUpBlocks();
             Resize += new EventHandler(RoomSimonSays_Resize);
             CenterElements();
+            help_str = "Click on the boxes in the same order as they light up!\n you need to pass 3 levels in order to WIN!";
         }
 
         private void GameTimerEvent(object sender, EventArgs e) {
