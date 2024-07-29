@@ -223,10 +223,6 @@ namespace Finale.Forms {
             this.is_playing = false;
         }
 
-        private void FormMain_KeyUp(object sender, KeyEventArgs e) {
-            throw new NotImplementedException();
-        }
-
         protected override void OnKeyDown(object sender, KeyEventArgs e) {
             if (e.Handled)
                 return;
@@ -301,13 +297,5 @@ namespace Finale.Forms {
             return null;
         }
 
-
-        private Control GetControl(string name) {
-            foreach (Control c in Controls) {
-                if (c.Name == name)
-                    return c;
-            }
-            return null;
-        }
     }
 }

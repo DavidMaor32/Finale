@@ -117,24 +117,5 @@ namespace Finale.Forms.Rooms {
             }
         }
 
-        private bool IsSolveable() {
-            int inversions = 0;
-            int[] arr = new int[this.SIZE * this.SIZE - 1];
-            int i = 0;
-            for (int row = 0; row < this.SIZE; row++) {
-                for (int col = 0; col < this.SIZE; col++) {
-                    if (this.buttons[row][col].Text != "") {
-                        arr[i++] = int.Parse(this.buttons[row][col].Text);
-                    }
-                }
-            }
-            for (i = 0; i < arr.Length - 1; i++) {
-                for (int j = i + 1; j < arr.Length; j++) {
-                    if (arr[i] > arr[j])
-                        inversions++;
-                }
-            }
-            return inversions % 2 == 0;
-        }
     }
 }

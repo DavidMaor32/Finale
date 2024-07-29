@@ -18,8 +18,7 @@ namespace Finale.Wordle {
         }
 
         public void Start() {
-            /*this.word = GetWord();*/
-            this.word = "sweat";
+            this.word = GetWord();
             this.guesses_left = NUM_GUESSES;
 
         }

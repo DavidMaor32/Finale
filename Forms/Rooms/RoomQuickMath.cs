@@ -165,37 +165,5 @@ namespace Finale.Forms.Rooms {
                     break;
             }
         }
-
-        private void RoomQuickMath_Load(object sender, EventArgs e) {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e) {
-
-        }
-
-        private void input_ans_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e) {
-
-        }
-
-        private void lbl_operand_2_Click(object sender, EventArgs e) {
-
-        }
-
-        private void lbl_operator_Click(object sender, EventArgs e) {
-
-        }
-
-        private void lbl_operand_1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void lbl_time_Click(object sender, EventArgs e) {
-
-        }
     }
 }

@@ -126,7 +126,7 @@
     <Compile Include="Forms\Rooms\RoomWordle.Designer.cs">
       <DependentUpon>RoomWordle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Games\Math\MathSolve.cs" />
+    <Compile Include="Games\Math\MathQuiz.cs" />
     <Compile Include="Games\Wordle\Wordle.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\RecordData.cs" />

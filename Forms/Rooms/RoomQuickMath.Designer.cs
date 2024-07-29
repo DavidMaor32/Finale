@@ -45,7 +45,6 @@
             this.lbl_time.Size = new System.Drawing.Size(103, 29);
             this.lbl_time.TabIndex = 0;
             this.lbl_time.Text = "TIME:10";
-            this.lbl_time.Click += new System.EventHandler(this.lbl_time_Click);
             // 
             // lbl_operand_1
             // 
@@ -56,7 +55,6 @@
             this.lbl_operand_1.Size = new System.Drawing.Size(94, 52);
             this.lbl_operand_1.TabIndex = 1;
             this.lbl_operand_1.Text = "234";
-            this.lbl_operand_1.Click += new System.EventHandler(this.lbl_operand_1_Click);
             // 
             // lbl_operand_2
             // 
@@ -67,7 +65,6 @@
             this.lbl_operand_2.Size = new System.Drawing.Size(94, 52);
             this.lbl_operand_2.TabIndex = 2;
             this.lbl_operand_2.Text = "234";
-            this.lbl_operand_2.Click += new System.EventHandler(this.lbl_operand_2_Click);
             // 
             // lbl_operator
             // 
@@ -78,7 +75,6 @@
             this.lbl_operator.Size = new System.Drawing.Size(48, 52);
             this.lbl_operator.TabIndex = 3;
             this.lbl_operator.Text = "+";
-            this.lbl_operator.Click += new System.EventHandler(this.lbl_operator_Click);
             // 
             // label2
             // 
@@ -89,7 +85,6 @@
             this.label2.Size = new System.Drawing.Size(48, 52);
             this.label2.TabIndex = 4;
             this.label2.Text = "=";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // input_ans
             // 
@@ -99,7 +94,6 @@
             this.input_ans.Size = new System.Drawing.Size(200, 52);
             this.input_ans.TabIndex = 5;
             this.input_ans.Text = "234";
-            this.input_ans.Click += new System.EventHandler(this.input_ans_Click);
             // 
             // btn_start
             // 
@@ -127,7 +121,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(592, 56);
             this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // RoomQuickMath
             // this.ClientSize = new System.Drawing.Size(1920, 1080);
@@ -136,7 +129,6 @@
             this.Controls.Add(this.lbl_time);
             this.Name = "RoomQuickMath";
             this.Text = "RoomQuickMath";
-            this.Load += new System.EventHandler(this.RoomQuickMath_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
