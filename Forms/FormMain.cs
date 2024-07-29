@@ -15,7 +15,6 @@ namespace Finale.Forms {
         private static readonly Color COLOR_WALL =          ColorTranslator.FromHtml("#2C3E50");
         private static readonly Color COLOR_GATE =          SystemColors.ControlDarkDark;
         private static readonly Color COLOR_GATE_SOLVER =   SystemColors.ControlLight;
-        private static readonly Color COLOR_PLAYER =        Color.Tan;
 
         private static readonly int speed = 4;
         private static readonly int interval = 16;
