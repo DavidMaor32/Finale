@@ -21,15 +21,17 @@ namespace Finale.Forms.Rooms {
 
         public RoomQuickMath() {
             InitializeComponent();
-            this.help_str = $"to win you need a score of minimum {GOAL} within {TIME_SEC} seconds. \n\neach correct answer is 1.\n each wrong answer is -1.";
+            this.lbl_time.Left = (Width - this.lbl_time.Width) / 2;
+            this.lbl_time.Top = (Height - this.lbl_time.Height) / 2 - 100;
 
-            this.lbl_time.Location = new System.Drawing.Point(Width / 2 - this.lbl_time.Width / 2, (int)(0.1 * Height));
-            this.panel1.Location = new System.Drawing.Point(Width / 2 - this.panel1.Width / 2, (int)(0.3 * Height));
-            /*this.btn_start.Location = this.panel1.Location;
-            this.btn_start.Text = "START";
-            this.btn_start.Bounds = this.panel1.Bounds;
-            */
-            this.btn_start.BringToFront();
+            this.panel1.Left = (Width - this.panel1.Width) / 2;
+            this.panel1.Top = (Height - this.panel1.Height) / 2;
+
+            this.btn_start.Left = (Width - this.btn_start.Width) / 2;
+            this.btn_start.Top = (Height - this.btn_start.Height) / 2;
+
+            this.panel1.Visible = false;
+            this.help_str = $"to win you need a score of minimum {GOAL} within {TIME_SEC} seconds. \n\neach correct answer is 1.\n each wrong answer is -1.";
 
             this.lbl_time.Text = "TIME:" + COUNTDOWN.ToString(@"mm\:ss");
             this.controller = new MathQuiz();
@@ -137,6 +139,7 @@ namespace Finale.Forms.Rooms {
         }
         private void btn_start_Click(object sender, EventArgs e) {
             this.btn_start.Dispose();
+            this.panel1.Visible = true;
             this.timer.Start();
             this.expr = this.controller.GetRandomExpression();
             UpdateExpr();
@@ -161,6 +164,38 @@ namespace Finale.Forms.Rooms {
                 default:
                     break;
             }
+        }
+
+        private void RoomQuickMath_Load(object sender, EventArgs e) {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void input_ans_Click(object sender, EventArgs e) {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e) {
+
+        }
+
+        private void lbl_operand_2_Click(object sender, EventArgs e) {
+
+        }
+
+        private void lbl_operator_Click(object sender, EventArgs e) {
+
+        }
+
+        private void lbl_operand_1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void lbl_time_Click(object sender, EventArgs e) {
+
         }
     }
 }

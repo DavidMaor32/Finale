@@ -42,9 +42,10 @@
             this.lbl_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_time.Location = new System.Drawing.Point(328, 24);
             this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Size = new System.Drawing.Size(69, 20);
+            this.lbl_time.Size = new System.Drawing.Size(103, 29);
             this.lbl_time.TabIndex = 0;
             this.lbl_time.Text = "TIME:10";
+            this.lbl_time.Click += new System.EventHandler(this.lbl_time_Click);
             // 
             // lbl_operand_1
             // 
@@ -52,9 +53,10 @@
             this.lbl_operand_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_operand_1.Location = new System.Drawing.Point(8, 8);
             this.lbl_operand_1.Name = "lbl_operand_1";
-            this.lbl_operand_1.Size = new System.Drawing.Size(66, 36);
+            this.lbl_operand_1.Size = new System.Drawing.Size(94, 52);
             this.lbl_operand_1.TabIndex = 1;
             this.lbl_operand_1.Text = "234";
+            this.lbl_operand_1.Click += new System.EventHandler(this.lbl_operand_1_Click);
             // 
             // lbl_operand_2
             // 
@@ -62,9 +64,10 @@
             this.lbl_operand_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_operand_2.Location = new System.Drawing.Point(216, 8);
             this.lbl_operand_2.Name = "lbl_operand_2";
-            this.lbl_operand_2.Size = new System.Drawing.Size(66, 36);
+            this.lbl_operand_2.Size = new System.Drawing.Size(94, 52);
             this.lbl_operand_2.TabIndex = 2;
             this.lbl_operand_2.Text = "234";
+            this.lbl_operand_2.Click += new System.EventHandler(this.lbl_operand_2_Click);
             // 
             // lbl_operator
             // 
@@ -72,9 +75,10 @@
             this.lbl_operator.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_operator.Location = new System.Drawing.Point(136, 8);
             this.lbl_operator.Name = "lbl_operator";
-            this.lbl_operator.Size = new System.Drawing.Size(32, 36);
+            this.lbl_operator.Size = new System.Drawing.Size(48, 52);
             this.lbl_operator.TabIndex = 3;
             this.lbl_operator.Text = "+";
+            this.lbl_operator.Click += new System.EventHandler(this.lbl_operator_Click);
             // 
             // label2
             // 
@@ -82,9 +86,10 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(328, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 36);
+            this.label2.Size = new System.Drawing.Size(48, 52);
             this.label2.TabIndex = 4;
             this.label2.Text = "=";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // input_ans
             // 
@@ -94,14 +99,16 @@
             this.input_ans.Size = new System.Drawing.Size(200, 52);
             this.input_ans.TabIndex = 5;
             this.input_ans.Text = "234";
+            this.input_ans.Click += new System.EventHandler(this.input_ans_Click);
             // 
             // btn_start
             // 
-            this.btn_start.Location = new System.Drawing.Point(-8, -24);
+            this.btn_start.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.btn_start.Location = new System.Drawing.Point(256, 224);
             this.btn_start.Name = "btn_start";
-            this.btn_start.Size = new System.Drawing.Size(688, 96);
+            this.btn_start.Size = new System.Drawing.Size(240, 96);
             this.btn_start.TabIndex = 6;
-            this.btn_start.Text = "start";
+            this.btn_start.Text = "START";
             this.btn_start.UseVisualStyleBackColor = true;
             this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
@@ -112,7 +119,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.input_ans);
-            this.panel1.Controls.Add(this.btn_start);
             this.panel1.Controls.Add(this.lbl_operand_1);
             this.panel1.Controls.Add(this.lbl_operand_2);
             this.panel1.Controls.Add(this.label2);
@@ -121,14 +127,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(592, 56);
             this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // RoomQuickMath
-            // 
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            // this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btn_start);
             this.Controls.Add(this.lbl_time);
             this.Name = "RoomQuickMath";
             this.Text = "RoomQuickMath";
+            this.Load += new System.EventHandler(this.RoomQuickMath_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

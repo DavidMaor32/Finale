@@ -8,7 +8,7 @@ namespace Finale.Forms.Rooms {
     public partial class RoomSimonSays : RoomBase {
         int blocksX = 160;
         int blocksY = 80;
-        int score = 0, level = 4;
+        int score = 0, level = 3, done=0;
 
         List<PictureBox> pictureBoxes = new List<PictureBox>();
         List<PictureBox> chosenBoxes = new List<PictureBox>();
@@ -64,23 +64,29 @@ namespace Finale.Forms.Rooms {
                 if (this.correctOrder == this.playerOrder) {
                     this.tries = 0;
                     this.game_timer.Stop();
-                    MessageBox.Show("Well Done! you got it right!");
-                    DialogResult = DialogResult.Yes;
+                    MessageBox.Show("Well Done! you got it right! LEVEL UP!");
+                    this.done++;
                     this.score++;
+                    if (this.done == 3) {
+                        MessageBox.Show("Well Done! you finished the game!");
+                        DialogResult = DialogResult.Yes;
+                        Close();
+                    }
                 }
                 else {
                     this.tries = 0;
                     this.game_timer.Stop();
                     MessageBox.Show("Sorry, you got it wrong!");
                     DialogResult = DialogResult.No;
+                    Close();
                 }
-                Close();
+
             }
             this.lbl.Text = "Click on " + this.level + " boxes in the same order";
         }
 
         private void ButtonClickEvent(object sender, EventArgs e) {
-            if (this.score == 3 && this.level < 7) {
+            if (this.score == 1 && this.level < 5) {
                 this.level++;
                 this.score = 0;
             }

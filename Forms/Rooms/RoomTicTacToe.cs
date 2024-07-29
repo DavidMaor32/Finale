@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Finale.Forms.Rooms {
@@ -64,13 +65,20 @@ namespace Finale.Forms.Rooms {
             else if (CheckWin(Player.O)) {
                 this.CPUTimer.Stop();
                 MessageBox.Show("You LOST!");
-                DialogResult = DialogResult.Yes;
+                DialogResult = DialogResult.No;
                 Close();
                 return true;
             }
+            else if (IsFull()) {
+                MessageBox.Show("Tie, no winners");
+                DialogResult = DialogResult.Cancel;
+                Close();
+            }
             return false;
         }
-
+        private bool IsFull() {
+            return this.buttons.All(button => button.Enabled = false);
+        }
         private bool CheckWin(Player player) {
             string playerSymbol = player.ToString();
 
