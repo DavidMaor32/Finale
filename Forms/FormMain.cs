@@ -108,7 +108,6 @@ namespace Finale.Forms {
             }
 
             KeyDown += OnKeyDown;
-            KeyPress += OnKeyPress;
             KeyUp += OnKeyUp;
         }
 
@@ -239,7 +238,8 @@ namespace Finale.Forms {
                     Dispose();
                 }
             }
-            if ("WASD".Contains(e.KeyCode.ToString())) {
+            if ("W A S D UP DOWN LEFT RIGHT".Contains(e.KeyCode.ToString().ToUpper())) {
+                Toggle(e.KeyCode.ToString().ToUpper(), true);
                 e.Handled = true;
                 return;
             }
@@ -248,49 +248,22 @@ namespace Finale.Forms {
             e.Handled = true;
         }
 
-        private void OnKeyPress(Object sender, KeyPressEventArgs e) {
-            switch (e.KeyChar) {
-                case 'w':
-                case 'W':
-                case (char)Keys.Up:
-                    this.up = true;
-                    break;
-                case 'a':
-                case 'A':
-                case (char)Keys.Left:
-                    this.left = true;
-                    break;
-                case 's':
-                case 'S':
-                case (char)Keys.Down:
-                    this.down = true;
-                    break;
-                case 'd':
-                case 'D':
-                case (char)Keys.Right:
-                    this.right = true;
-                    break;
-            }
+        private void Toggle(string dir, bool state) {
+            if (dir == "W" || dir == "UP")
+                this.up = state;
+            else if (dir == "A" || dir == "LEFT")
+                this.left = state;
+            else if (dir == "S" || dir == "DOWN")
+                this.down = state;
+            else if (dir == "D" || dir == "RIGHT")
+                this.right = state;
         }
 
         private void OnKeyUp(Object sender, KeyEventArgs e) {
-            switch (e.KeyCode) {
-                case Keys.W:
-                case Keys.Up:
-                    this.up = false;
-                    break;
-                case Keys.A:
-                case Keys.Left:
-                    this.left = false;
-                    break;
-                case Keys.S:
-                case Keys.Down:
-                    this.down = false;
-                    break;
-                case Keys.D:
-                case Keys.Right:
-                    this.right = false;
-                    break;
+            if ("W A S D UP DOWN LEFT RIGHT".Contains(e.KeyCode.ToString().ToUpper())) {
+                Toggle(e.KeyCode.ToString().ToUpper(), false);
+                e.Handled = true;
+                return;
             }
         }
 
