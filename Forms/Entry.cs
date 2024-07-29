@@ -25,7 +25,7 @@ namespace Finale.Forms {
             this.btn_start.Location = new Point(this.menu_panel.Width / 2 - this.btn_start.Width / 2,
                 this.intro_label.Bottom + 70);
             this.btn_quit.Location = new Point(this.menu_panel.Width / 2 - this.btn_quit.Width / 2,
-                this.btn_start.Bottom + 250);
+                this.btn_start.Bottom + (int)(Height * .07f));
 
 
         }
